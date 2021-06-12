@@ -1,4 +1,4 @@
-package com.sps.util;
+package util;
 
 @FunctionalInterface
 public interface NavActionListener {

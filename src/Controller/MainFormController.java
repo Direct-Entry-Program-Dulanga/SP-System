@@ -1,7 +1,5 @@
-package com.sps.Controller;
+package Controller;
 
-import com.sps.util.AppBarIcon;
-import com.sps.util.NavActionListener;
 import javafx.animation.FadeTransition;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
@@ -13,15 +11,18 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 import javafx.util.Duration;
+import util.AppBarIcon;
+import util.NavActionListener;
 
 import java.io.IOException;
 
 public class MainFormController {
-    public AnchorPane pneAppBar;
-    public ImageView imgClose;
-    public ImageView imgMinimize;
-    public Label lblTitle;
+
     public ImageView imgNav;
+    public ImageView imgMinimize;
+    public ImageView imgClose;
+    public AnchorPane pneAppBar;
+    public Label lblTitle;
     public AnchorPane pneStage;
     private double xMousePos;
     private double yMousePos;
@@ -57,10 +58,6 @@ public class MainFormController {
                 case NAV_ICON_NONE:
                     imgNav.setVisible(false);
                     imgNav.setUserData(null);
-                    break;
-                case NAV_ICON_HOME:
-                    imgNav.setImage(new Image("/view/assets/icons/home.png"));
-                    imgNav.setUserData(new Image("/view/assets/icons/home-hover.png"));
                     break;
                 case NAV_ICON_BACK:
                     imgNav.setImage(new Image("/view/assets/icons/back.png"));
@@ -120,12 +117,12 @@ public class MainFormController {
             }
         });
 
-        imgClose.setOnMouseEntered(event -> imgClose.setImage(new Image("/view/assets/icons/close-hover.png")));
-        imgClose.setOnMouseExited(event -> imgClose.setImage(new Image("/view/assets/icons/close.png")));
+        imgClose.setOnMouseEntered(event -> imgClose.setImage(new Image("/View/assets/icons/close-hover.png")));
+        imgClose.setOnMouseExited(event -> imgClose.setImage(new Image("/View/assets/icons/close.png")));
         imgClose.setOnMouseClicked(event -> ((Stage) (imgClose.getScene().getWindow())).close());
 
-        imgMinimize.setOnMouseEntered(event -> imgMinimize.setImage(new Image("/view/assets/icons/minimize-hover.png")));
-        imgMinimize.setOnMouseExited(event -> imgMinimize.setImage(new Image("/view/assets/icons/minimize.png")));
+        imgMinimize.setOnMouseEntered(event -> imgMinimize.setImage(new Image("/View/assets/icons/minimize-hover.png")));
+        imgMinimize.setOnMouseExited(event -> imgMinimize.setImage(new Image("/View/assets/icons/minimize.png")));
         imgMinimize.setOnMouseClicked(event -> ((Stage) (imgClose.getScene().getWindow())).setIconified(true));
     }
 
@@ -137,4 +134,5 @@ public class MainFormController {
             imgNav.setUserData(temp);
         }
     }
+
 }

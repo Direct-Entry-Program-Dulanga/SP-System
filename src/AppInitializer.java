@@ -1,7 +1,5 @@
-package com.sps;
-
-import com.sps.Controller.MainFormController;
-import com.sps.util.AppBarIcon;
+import Controller.MainFormController;
+import util.AppBarIcon;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -20,13 +18,13 @@ public class AppInitializer extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("View/MainForm.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("/View/MainForm.fxml"));
         Parent root = fxmlLoader.load();
         Scene mainScene = new Scene(root);
         primaryStage.setScene(mainScene);
-//        MainFormController ctrl = fxmlLoader.getController();
-//        ctrl.navigate("Student Management System", "/com/sps/View/HomeForm.fxml", AppBarIcon.NAV_ICON_NONE);
-//        mainScene.setUserData(ctrl);
+        MainFormController ctrl = fxmlLoader.getController();
+        ctrl.navigate("Student Management System","/View/HomeForm.fxml", AppBarIcon.NAV_ICON_NONE);
+        mainScene.setUserData(ctrl);
         mainScene.setFill(Color.TRANSPARENT);
         primaryStage.initStyle(StageStyle.TRANSPARENT);
         primaryStage.setTitle("Student Management System");
