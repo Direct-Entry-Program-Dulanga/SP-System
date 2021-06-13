@@ -1,6 +1,6 @@
 package Service;
 
-import Model.Student;
+
 import Model.StudentA;
 
 import java.util.ArrayList;
@@ -12,7 +12,6 @@ public class ManageService {
 
     static{
 
-        /* Let's add some dummy data */
         StudentA v1 = new StudentA("R-001",5000.00, 100000.00);
         studentADB.add(v1);
 
@@ -50,9 +49,7 @@ public class ManageService {
 
         for (StudentA studenta : studentADB) {
 
-            if (studenta.getRegisterID().contains(query) ||
-                    studenta.getRegisterFee().contains(query) ||
-                    studenta.getPaymentFee().contains(query)) {
+            if (studenta.getRegisterID().contains(query)){
                 result.add(studenta);
             }
         }

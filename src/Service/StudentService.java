@@ -65,4 +65,9 @@ public class StudentService {
         }
         return result;
     }
+
+    public void deleteStudent(String registerID) {
+        Student student = findStudent(registerID);
+        studentsDB.remove(student);
+    }
 }
