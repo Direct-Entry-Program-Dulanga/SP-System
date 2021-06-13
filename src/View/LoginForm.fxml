@@ -65,13 +65,16 @@
                </AnchorPane>
             </children>
          </HBox>
-         <HBox />
+         <HBox>
+            <children>
+               <Label fx:id="lblError" prefHeight="16.0" prefWidth="393.0" />
+            </children></HBox>
          <HBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0" prefWidth="340.0">
             <children>
                <Label prefHeight="50.0" prefWidth="142.0" />
                <JFXRippler maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="150.0">
                   <children>
-                     <AnchorPane fx:id="pneLoginUser" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#pneLoginUser_OnKeyPressed" onKeyReleased="#pneLoginUser_OnKeyReleased" onMouseClicked="#pneLoginUser_OnMouseClicked" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #985EFF;" styleClass="menu">
+                     <AnchorPane fx:id="pneLoginUser" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #985EFF;" styleClass="menu">
                         <children>
                            <Label alignment="CENTER" layoutX="5.0" layoutY="5.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="140.0" styleClass="menu-title" text="LOGIN">
                               <font>

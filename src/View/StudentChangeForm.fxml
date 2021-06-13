@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="600.0" style="-fx-background-color: white;" stylesheets="@css/SearchStudentsFormStyles.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.StudentChangeFormController">
+    <children>
+        <Label layoutX="214.0" layoutY="52.0" text="View Students">
+            <font>
+                <Font size="24.0" />
+            </font>
+        </Label>
+        <AnchorPane layoutX="16.0" layoutY="117.0" prefHeight="38.0" prefWidth="569.0">
+            <children>
+                <TextField fx:id="txtQuery" accessibleText="Query" prefHeight="26.0" prefWidth="545.0" promptText="Enter student name, nic, contact number, email, etc." style="-fx-background-color: white;" AnchorPane.bottomAnchor="6.0" AnchorPane.leftAnchor="6.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="6.0" />
+            </children>
+        </AnchorPane>
+        <TableView id="tbl-results" fx:id="tblAdminStudents" layoutX="23.0" layoutY="181.0" onKeyPressed="#tblResults_OnKeyPressed" prefHeight="380.0" prefWidth="555.0" AnchorPane.bottomAnchor="22.0" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="22.0">
+            <columns>
+                <TableColumn prefWidth="99.0" text="NIC" />
+                <TableColumn minWidth="7.0" prefWidth="155.0" text="Name" />
+                <TableColumn prefWidth="205.0" text="Address" />
+                <TableColumn prefWidth="94.0" />
+            </columns>
+        </TableView>
+    </children>
+</AnchorPane>
