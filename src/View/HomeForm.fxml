@@ -66,17 +66,5 @@
             <Font size="10.0" />
          </font>
       </Label>
-      <AnchorPane fx:id="pneSearchStudents1" layoutX="14.0" layoutY="339.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#pneSearchStudents_OnKeyPress" onKeyReleased="#pneSearchStudents_OnKeyReleased" onMouseClicked="#pneSearchStudents_OnMouseClicked" prefHeight="47.0" prefWidth="71.0" styleClass="menu">
-         <children>
-            <Label alignment="CENTER" layoutY="16.0" prefHeight="30.0" prefWidth="70.0" style="-fx-background-color: #985EFF;" styleClass="menu-title" text="LOGOUT">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
-         </children>
-         <rotationAxis>
-            <Point3D z="4.0" />
-         </rotationAxis>
-      </AnchorPane>
    </children>
 </AnchorPane>

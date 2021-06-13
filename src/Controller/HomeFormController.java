@@ -29,28 +29,28 @@ public class HomeFormController {
     }
 
     public void pneSearchStudents_OnMouseClicked(MouseEvent mouseEvent) {
-        navigate("Search Students", "/view/SearchStudentsForm.fxml");
+        navigate("Search Registrations", "/View/SearchRegistrationForm.fxml");
     }
 
     public void pneAddNewStudent_OnMouseClicked(MouseEvent mouseEvent) throws IOException {
-        navigate("Add New Student", "/view/StudentForm.fxml");
+        navigate("Add New Student", "/View/NewStudentFrom.fxml");
     }
 
     public void pneAddNewStudent_OnKeyReleased(KeyEvent keyEvent) throws IOException {
         if (keyEvent.getCode() == KeyCode.ENTER || keyEvent.getCode() == KeyCode.SPACE) {
-            navigate("Add New Student", "/view/StudentForm.fxml");
+            navigate("Add New Student", "/View/NewStudentFrom.fxml");
         }
     }
 
     public void pneSearchStudents_OnKeyReleased(KeyEvent keyEvent) {
         if (keyEvent.getCode() == KeyCode.ENTER || keyEvent.getCode() == KeyCode.SPACE) {
-            navigate("Search Students", "/view/SearchStudentsForm.fxml");
+            navigate("Search Registrations", "/View/SearchRegistrationForm.fxml");
         }
     }
 
     private void navigate(String title, String url) {
         MainFormController ctrl = (MainFormController) pneSearchStudents.getScene().getUserData();
         ctrl.navigate(title, url, AppBarIcon.NAV_ICON_BACK, () ->
-                ctrl.navigate("Student Payment System", "/View/LoginForm.fxml", AppBarIcon.NAV_ICON_BACK));
+                ctrl.navigate("Student Payment System", "/View/HomeForm.fxml", AppBarIcon.NAV_ICON_BACK));
     }
 }

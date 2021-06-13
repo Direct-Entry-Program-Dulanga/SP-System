@@ -23,11 +23,11 @@ public class AppInitializer extends Application {
         Scene mainScene = new Scene(root);
         primaryStage.setScene(mainScene);
         MainFormController ctrl = fxmlLoader.getController();
-        ctrl.navigate("Student Payment System","/View/NewStudentFrom.fxml", AppBarIcon.NAV_ICON_NONE);
+        ctrl.navigate("Student Payment System","/View/HomeForm.fxml", AppBarIcon.NAV_ICON_NONE);
         mainScene.setUserData(ctrl);
         mainScene.setFill(Color.TRANSPARENT);
         primaryStage.initStyle(StageStyle.TRANSPARENT);
-//        primaryStage.setTitle("Student Payment System");
+        primaryStage.setTitle("Student Payment System");
         primaryStage.show();
         primaryStage.centerOnScreen();
     }

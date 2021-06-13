@@ -59,9 +59,13 @@ public class MainFormController {
                     imgNav.setVisible(false);
                     imgNav.setUserData(null);
                     break;
+                case NAV_ICON_HOME:
+                    imgNav.setImage(new Image("/View/assets/icons/home.png"));
+                    imgNav.setUserData(new Image("/View/assets/icons/home-hover.png"));
+                    break;
                 case NAV_ICON_BACK:
-                    imgNav.setImage(new Image("/view/assets/icons/back.png"));
-                    imgNav.setUserData(new Image("/view/assets/icons/back-hover.png"));
+                    imgNav.setImage(new Image("/View/assets/icons/back.png"));
+                    imgNav.setUserData(new Image("/View/assets/icons/back-hover.png"));
                     break;
             }
             Stage primaryStage = (Stage) (pneStage.getScene().getWindow());
