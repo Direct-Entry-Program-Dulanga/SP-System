@@ -4,6 +4,7 @@ import java.time.LocalDate;
 
 public class Student {
 
+    private String registerID;
     private String fullName;
     private String address;
     private String contact;
@@ -12,11 +13,20 @@ public class Student {
     public Student() {
     }
 
-    public Student(String fullName, String address, String contact, String email) {
+    public Student(String registerID, String fullName, String address, String contact, String email) {
+        this.registerID = registerID;
         this.fullName = fullName;
         this.address = address;
         this.contact = contact;
         this.email = email;
+    }
+
+    public String getRegisterID() {
+        return registerID;
+    }
+
+    public void setRegisterID(String registerID) {
+        this.registerID = registerID;
     }
 
     public String getFullName() {
