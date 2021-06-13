@@ -9,7 +9,7 @@ public class StudentChangeFormController {
 
 
     public TextField txtQuery;
-    public TableView tblAdminStudents;
+    public TableView<> tblAdminStudents;
 
     public void initialize(){
         MaterialUI.paintTextFields(txtQuery);

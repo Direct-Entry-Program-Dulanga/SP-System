@@ -10,7 +10,7 @@ public class Student {
     private String contact;
     private String email;
 
-    public Student() {
+    public Student(String s, double v, double v1) {
     }
 
     public Student(String registerID, String fullName, String address, String contact, String email) {
