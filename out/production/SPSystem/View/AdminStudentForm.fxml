@@ -1,38 +1,235 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="Controller.AdminStudentFormController"
-            style="-fx-background-color: white;"
-            prefHeight="600.0" prefWidth="1000.0">
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AdminStudentFormController">
+
     <children>
-        <Label layoutX="414.0" layoutY="51.0" text="View Students">
+        <Label fx:id="lblTitle" layoutX="199.0" layoutY="36.0" text="Update Student">
             <font>
                 <Font size="24.0" />
             </font>
         </Label>
-        <AnchorPane layoutX="16.0" layoutY="117.0" prefHeight="38.0" prefWidth="569.0" AnchorPane.leftAnchor="16.0">
+        <VBox layoutY="93.0" prefHeight="456.0" prefWidth="600.0" spacing="20.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="93.0">
             <children>
-                <TextField fx:id="txtQuery" accessibleText="Query" prefHeight="26.0" prefWidth="545.0" promptText="Enter student name, register ID" style="-fx-background-color: white;" AnchorPane.bottomAnchor="6.0" AnchorPane.leftAnchor="6.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="6.0" />
+                <HBox>
+                    <children>
+                        <Label fx:id="lblAge5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="47.0" prefWidth="130.0" text="NIC No:">
+                            <padding>
+                                <Insets left="10.0" right="10.0" />
+                            </padding>
+                            <HBox.margin>
+                                <Insets left="10.0" />
+                            </HBox.margin>
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                        <AnchorPane prefHeight="48.0" prefWidth="300.0">
+                            <children>
+                                <TextField fx:id="txtNIC" layoutY="8.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="38.0" prefWidth="105.0" promptText="---" style="-fx-background-color: white;" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font></TextField>
+                            </children></AnchorPane>
+                    </children>
+                </HBox>
+                <HBox>
+                    <children>
+                        <Label fx:id="lblAge" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="47.0" prefWidth="130.0" text="Student Name:">
+                            <padding>
+                                <Insets left="10.0" right="10.0" />
+                            </padding>
+                            <HBox.margin>
+                                <Insets left="10.0" />
+                            </HBox.margin>
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                        <AnchorPane prefHeight="48.0" prefWidth="300.0">
+                            <children>
+                                <TextField fx:id="txtStudentName" accessibleText="Date of Birth" layoutX="14.0" layoutY="9.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="38.0" prefWidth="270.0" promptText="---" style="-fx-background-color: white;" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                </TextField>
+                            </children>
+                        </AnchorPane>
+                    </children>
+                </HBox>
+                <HBox>
+                    <children>
+                        <Label fx:id="lblAge1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="47.0" prefWidth="130.0" text="Address:">
+                            <padding>
+                                <Insets left="10.0" right="10.0" />
+                            </padding>
+                            <HBox.margin>
+                                <Insets left="10.0" />
+                            </HBox.margin>
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                        <AnchorPane prefHeight="38.0" prefWidth="300.0">
+                            <children>
+                                <TextField fx:id="txtAddress" accessibleText="Date of Birth" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="38.0" prefWidth="270.0" promptText="---" style="-fx-background-color: white;" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                </TextField>
+                            </children>
+                        </AnchorPane>
+                    </children>
+                </HBox>
+                <HBox>
+                    <children>
+                        <Label fx:id="lblAge2" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="47.0" prefWidth="130.0" text="Phone No:">
+                            <padding>
+                                <Insets left="10.0" right="10.0" />
+                            </padding>
+                            <HBox.margin>
+                                <Insets left="10.0" />
+                            </HBox.margin>
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                        <AnchorPane prefHeight="48.0" prefWidth="300.0">
+                            <children>
+                                <TextField fx:id="txtPhone" accessibleText="Date of Birth" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#txtPhone_OnKeyTyped" prefHeight="38.0" prefWidth="270.0" promptText="---" style="-fx-background-color: white;" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                </TextField>
+                            </children>
+                        </AnchorPane>
+                    </children>
+                </HBox>
+                <HBox>
+                    <children>
+                        <Label fx:id="lblAge3" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="48.0" prefWidth="130.0" text="Email Address:">
+                            <padding>
+                                <Insets left="10.0" right="10.0" />
+                            </padding>
+                            <HBox.margin>
+                                <Insets left="10.0" />
+                            </HBox.margin>
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                        <AnchorPane prefHeight="48.0" prefWidth="300.0">
+                            <children>
+                                <TextField fx:id="txtEmail" accessibleText="Date of Birth" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="38.0" prefWidth="270.0" promptText="---" style="-fx-background-color: white;" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                </TextField>
+                            </children>
+                        </AnchorPane>
+                    </children>
+                </HBox>
+            <HBox>
+               <children>
+                  <Label fx:id="lblAge31" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="48.0" prefWidth="130.0" text="Register Fee:">
+                     <padding>
+                        <Insets left="10.0" right="10.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <AnchorPane prefHeight="48.0" prefWidth="300.0">
+                     <children>
+                        <TextField fx:id="txtRegister" accessibleText="Date of Birth" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="38.0" prefWidth="270.0" promptText="---" style="-fx-background-color: white;" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </HBox>
+            <HBox>
+               <children>
+                  <Label fx:id="lblAge32" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="48.0" prefWidth="130.0" text="Payment Fee:">
+                     <padding>
+                        <Insets left="10.0" right="10.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <AnchorPane prefHeight="48.0" prefWidth="300.0">
+                     <children>
+                        <TextField fx:id="txtPayment" accessibleText="Date of Birth" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="38.0" prefWidth="270.0" promptText="---" style="-fx-background-color: white;" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </HBox>
+                <HBox>
+                    <children>
+                        <Label fx:id="lblAge4" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="46.0" prefWidth="130.0" text="Course Type:">
+                            <padding>
+                                <Insets left="10.0" right="10.0" />
+                            </padding>
+                            <HBox.margin>
+                                <Insets left="10.0" />
+                            </HBox.margin>
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="lblAge41" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="38.0" prefWidth="10.0">
+                            <padding>
+                                <Insets left="10.0" right="10.0" />
+                            </padding>
+                        </Label>
+                        <AnchorPane prefHeight="48.0" prefWidth="300.0">
+                            <children>
+                                <RadioButton fx:id="rbnGDse" layoutX="7.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="38.0" prefWidth="75.0" selected="true" text="GDSE" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="course" />
+                           </toggleGroup></RadioButton>
+                                <RadioButton fx:id="rbnDep" layoutX="80.0" layoutY="5.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="38.0" prefWidth="75.0" text="DEP" toggleGroup="$course" AnchorPane.bottomAnchor="5.0" AnchorPane.topAnchor="5.0" />
+                            </children>
+                        </AnchorPane>
+                    </children>
+                </HBox>
+                <BorderPane />
             </children>
-        </AnchorPane>
-        <TableView id="tbl-results" fx:id="tblAdStudents" layoutX="23.0" layoutY="181.0"  prefHeight="380.0" prefWidth="555.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
-            <columns>
-                <TableColumn prefWidth="99.0" text="Register ID" />
-                <TableColumn minWidth="7.0" prefWidth="155.0" text="Name" />
-                <TableColumn prefWidth="145.0" text="Address" />
-                <TableColumn prefWidth="100.0" text="Course" />
-                <TableColumn prefWidth="138.0" text="Registration Fee" />
-                <TableColumn prefWidth="177.0" text="Payment Fee" />
-                <TableColumn prefWidth="141.0" />
-            </columns>
-        </TableView>
+        </VBox>
+        <Label layoutX="206.0" layoutY="692.0" text="Copyright © 2021 SPS. MIT Licensed.">
+            <font>
+                <Font size="10.0" />
+            </font>
+        </Label>
+            <JFXButton fx:id="btnSave" alignment="CENTER" layoutX="211.0" layoutY="637.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#btnSave_OnAction" prefHeight="40.0" prefWidth="166.0" style="-fx-background-color: #985EFF;" text="ADD NEW STUDENT">
+                <font>
+                    <Font size="14.0" />
+                </font>
+      </JFXButton>
     </children>
+
 </AnchorPane>
