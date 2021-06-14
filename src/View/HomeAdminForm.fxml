@@ -11,7 +11,7 @@
    <children>
       <JFXRippler layoutX="139.0" layoutY="116.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="90.0" prefWidth="300.0">
          <children>
-            <AnchorPane fx:id="pneAddNewStudent" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#pneAddNewStudent_OnKeyPress" onKeyReleased="#pneAddNewStudent_OnKeyReleased" onMouseClicked="#pneAddNewStudent_OnMouseClicked" prefHeight="90.0" prefWidth="300.0" style="-fx-background-color: #985EFF;" styleClass="menu">
+            <AnchorPane fx:id="pneAddNewStudent" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#pneViewStudent_OnKeyPress" onKeyReleased="#pneViewStudent_OnKeyReleased" onMouseClicked="#pneViewStudent_OnMouseClicked" prefHeight="90.0" prefWidth="300.0" style="-fx-background-color: #985EFF;" styleClass="menu">
                <children>
                   <Label layoutX="95.0" layoutY="56.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="15.0" prefWidth="180.0" text="Click to view students">
                      <font>
@@ -34,7 +34,7 @@
       </JFXRippler>
       <JFXRippler layoutX="139.0" layoutY="229.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="90.0" prefWidth="300.0">
          <children>
-            <AnchorPane fx:id="pneSearchStudents" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#pneSearchStudents_OnKeyPress" onKeyReleased="#pneSearchStudents_OnKeyReleased" onMouseClicked="#pneSearchStudents_OnMouseClicked" prefHeight="90.0" prefWidth="300.0" style="-fx-background-color: #985EFF;" styleClass="menu">
+            <AnchorPane fx:id="pneSearchStudents" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#pneViewCourse_OnKeyPress" onKeyReleased="#pneViewCourse_OnKeyReleased" onMouseClicked="#pneViewCourse_OnMouseClicked" prefHeight="90.0" prefWidth="300.0" style="-fx-background-color: #985EFF;" styleClass="menu">
                <children>
                   <Label layoutX="95.0" layoutY="56.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="15.0" prefWidth="180.0" text="Click to view courses">
                      <font>

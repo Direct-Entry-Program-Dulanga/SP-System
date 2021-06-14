@@ -2,7 +2,7 @@ package Model;
 
 public class AdminTM {
 
-    private String registerID;
+    private String nic;
     private String fullName;
     private String address;
     private double registerFee;
@@ -11,20 +11,20 @@ public class AdminTM {
     public AdminTM() {
     }
 
-    public AdminTM(String registerID, String fullName, String address, double registerFee, double paymentFee) {
-        this.registerID = registerID;
+    public AdminTM(String nic, String fullName, String address, double registerFee, double paymentFee) {
+        this.nic = nic;
         this.fullName = fullName;
         this.address = address;
         this.registerFee = registerFee;
         this.paymentFee = paymentFee;
     }
 
-    public String getRegisterID() {
-        return registerID;
+    public String getNic() {
+        return nic;
     }
 
-    public void setRegisterID(String registerID) {
-        this.registerID = registerID;
+    public void setNic(String nic) {
+        this.nic = nic;
     }
 
     public String getFullName() {

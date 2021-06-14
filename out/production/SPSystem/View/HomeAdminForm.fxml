@@ -9,21 +9,21 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.HomeAdminFormController">
    <children>
-      <JFXRippler layoutX="139.0" layoutY="116.0" prefHeight="96.0" prefWidth="289.0">
+      <JFXRippler layoutX="139.0" layoutY="116.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="90.0" prefWidth="300.0">
          <children>
-            <AnchorPane fx:id="pneAddNewStudent" onKeyPressed="#pneAddNewStudent_OnKeyPress" onKeyReleased="#pneAddNewStudent_OnKeyReleased" onMouseClicked="#pneAddNewStudent_OnMouseClicked" prefHeight="93.0" prefWidth="318.0" style="-fx-background-color: #985EFF;" styleClass="menu">
+            <AnchorPane fx:id="pneAddNewStudent" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#pneViewStudent_OnKeyPress" onKeyReleased="#pneViewStudent_OnKeyReleased" onMouseClicked="#pneViewStudent_OnMouseClicked" prefHeight="90.0" prefWidth="300.0" style="-fx-background-color: #985EFF;" styleClass="menu">
                <children>
-                  <Label layoutX="95.0" layoutY="56.0" text="Click to add a new student">
+                  <Label layoutX="95.0" layoutY="56.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="15.0" prefWidth="180.0" text="Click to view students">
                      <font>
                         <Font size="12.0" />
                      </font>
                   </Label>
-                  <ImageView fitHeight="62.0" fitWidth="71.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="72.0" fitWidth="62.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@assets/StudentRegistration.png" />
+                        <Image url="@assets/Student.png" />
                      </image>
                   </ImageView>
-                  <Label layoutX="95.0" layoutY="23.0" styleClass="menu-title" text="Add New Student">
+                  <Label layoutX="95.0" layoutY="23.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="180.0" styleClass="menu-title" text="View Students">
                      <font>
                         <Font size="24.0" />
                      </font>
@@ -32,21 +32,21 @@
             </AnchorPane>
          </children>
       </JFXRippler>
-      <JFXRippler layoutX="139.0" layoutY="229.0" prefHeight="96.0" prefWidth="322.0">
+      <JFXRippler layoutX="139.0" layoutY="229.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="90.0" prefWidth="300.0">
          <children>
-            <AnchorPane fx:id="pneSearchStudents" onKeyPressed="#pneSearchStudents_OnKeyPress" onKeyReleased="#pneSearchStudents_OnKeyReleased" onMouseClicked="#pneSearchStudents_OnMouseClicked" prefHeight="96.0" prefWidth="338.0" style="-fx-background-color: #985EFF;" styleClass="menu">
+            <AnchorPane fx:id="pneSearchStudents" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#pneViewCourse_OnKeyPress" onKeyReleased="#pneViewCourse_OnKeyReleased" onMouseClicked="#pneViewCourse_OnMouseClicked" prefHeight="90.0" prefWidth="300.0" style="-fx-background-color: #985EFF;" styleClass="menu">
                <children>
-                  <Label layoutX="95.0" layoutY="56.0" text="Click to view payments">
+                  <Label layoutX="95.0" layoutY="56.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="15.0" prefWidth="180.0" text="Click to view courses">
                      <font>
                         <Font size="12.0" />
                      </font>
                   </Label>
                   <ImageView fitHeight="62.0" fitWidth="71.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@assets/SearchClient.png" />
+                        <Image url="@assets/Course.png" />
                      </image>
                   </ImageView>
-                  <Label layoutX="95.0" layoutY="23.0" styleClass="menu-title" text="View Payments">
+                  <Label layoutX="95.0" layoutY="23.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="180.0" styleClass="menu-title" text="View Courses">
                      <font>
                         <Font size="24.0" />
                      </font>

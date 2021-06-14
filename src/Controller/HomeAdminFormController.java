@@ -7,8 +7,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import util.AppBarIcon;
 
-import java.io.IOException;
-
 public class HomeAdminFormController {
 
     public JFXRippler rprAddNewStudent;
@@ -16,36 +14,37 @@ public class HomeAdminFormController {
     public JFXRippler rprSearchStudents;
     public AnchorPane pneSearchStudents;
 
-    public void pneAddNewStudent_OnKeyPress(KeyEvent keyEvent) {
+
+    public void pneViewStudent_OnKeyPress(KeyEvent keyEvent) {
         if (keyEvent.getCode() == KeyCode.ENTER || keyEvent.getCode() == KeyCode.SPACE) {
             rprAddNewStudent.createManualRipple().run();
         }
     }
 
-    public void pneSearchStudents_OnKeyPress(KeyEvent keyEvent) {
+    public void pneViewStudent_OnKeyReleased(KeyEvent keyEvent) {
+        if (keyEvent.getCode() == KeyCode.ENTER || keyEvent.getCode() == KeyCode.SPACE) {
+            navigate("Add New Student", "/View/AdminSearchForm.fxml");
+        }
+    }
+
+    public void pneViewStudent_OnMouseClicked(MouseEvent mouseEvent) {
+        navigate("Add New Student", "/View/AdminSearchForm.fxml");
+    }
+
+    public void pneViewCourse_OnKeyPress(KeyEvent keyEvent) {
         if (keyEvent.getCode() == KeyCode.ENTER || keyEvent.getCode() == KeyCode.SPACE) {
             rprSearchStudents.createManualRipple().run();
         }
     }
 
-    public void pneSearchStudents_OnMouseClicked(MouseEvent mouseEvent) {
-        navigate("Search Registrations", "/View/SearchRegistrationForm.fxml");
-    }
-
-    public void pneAddNewStudent_OnMouseClicked(MouseEvent mouseEvent) throws IOException {
-        navigate("Add New Student", "/View/NewStudentFrom.fxml");
-    }
-
-    public void pneAddNewStudent_OnKeyReleased(KeyEvent keyEvent) throws IOException {
-        if (keyEvent.getCode() == KeyCode.ENTER || keyEvent.getCode() == KeyCode.SPACE) {
-            navigate("Add New Student", "/View/NewStudentFrom.fxml");
-        }
-    }
-
-    public void pneSearchStudents_OnKeyReleased(KeyEvent keyEvent) {
+    public void pneViewCourse_OnKeyReleased(KeyEvent keyEvent) {
         if (keyEvent.getCode() == KeyCode.ENTER || keyEvent.getCode() == KeyCode.SPACE) {
             navigate("Search Registrations", "/View/SearchRegistrationForm.fxml");
         }
+    }
+
+    public void pneViewCourse_OnMouseClicked(MouseEvent mouseEvent) {
+        navigate("Search Registrations", "/View/SearchRegistrationForm.fxml");
     }
 
     private void navigate(String title, String url) {
@@ -53,4 +52,6 @@ public class HomeAdminFormController {
         ctrl.navigate(title, url, AppBarIcon.NAV_ICON_BACK, () ->
                 ctrl.navigate("Student Payment System", "/View/HomeForm.fxml", AppBarIcon.NAV_ICON_BACK));
     }
+
+
 }

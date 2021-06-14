@@ -22,7 +22,7 @@ public class LoginFormController {
         MaterialUI.paintTextFields(txtPassword, txtUserName);
     }
 
-    public void pneAddNewStudent_OnMouseClicked(MouseEvent mouseEvent) {
+    public void pneLogin_OnMouseClicked(MouseEvent mouseEvent) {
         if (txtUserName.getText().equals("User") && txtPassword.getText().equals("123")) {
             navigate("Student Payment System", "/View/HomeForm.fxml");
             lblError.setVisible(false);
@@ -43,12 +43,12 @@ public class LoginFormController {
         }
     }
 
-
     private void navigate(String title, String url) {
         MainFormController ctrl = (MainFormController) pneLogin.getScene().getUserData();
         ctrl.navigate(title, url, AppBarIcon.NAV_ICON_BACK, () ->
                 ctrl.navigate("Student Payment System", "/View/LoginForm.fxml", AppBarIcon.NAV_ICON_BACK));
     }
+
 
 }
 

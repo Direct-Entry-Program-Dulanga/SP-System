@@ -12,10 +12,10 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AdminStudentFormController">
+<AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AdminStudentFormController">
 
     <children>
-        <Label fx:id="lblTitle" layoutX="199.0" layoutY="36.0" text="Update Student">
+        <Label fx:id="lblTitle" layoutX="190.0" layoutY="38.0" text="Add New Student">
             <font>
                 <Font size="24.0" />
             </font>
@@ -37,7 +37,7 @@
                         </Label>
                         <AnchorPane prefHeight="48.0" prefWidth="300.0">
                             <children>
-                                <TextField fx:id="txtNIC" layoutY="8.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="38.0" prefWidth="105.0" promptText="---" style="-fx-background-color: white;" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                                <TextField fx:id="txtNIC" layoutY="8.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="38.0" prefWidth="105.0" promptText="Eg: 961710065v" style="-fx-background-color: white;" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
                                     <font>
                                         <Font size="14.0" />
                                     </font></TextField>
@@ -59,7 +59,7 @@
                         </Label>
                         <AnchorPane prefHeight="48.0" prefWidth="300.0">
                             <children>
-                                <TextField fx:id="txtStudentName" accessibleText="Date of Birth" layoutX="14.0" layoutY="9.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="38.0" prefWidth="270.0" promptText="---" style="-fx-background-color: white;" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                                <TextField fx:id="txtStudentName" accessibleText="Date of Birth" layoutX="14.0" layoutY="9.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="38.0" prefWidth="270.0" promptText="Eg. A. Anthony De Silva" style="-fx-background-color: white;" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
                                     <font>
                                         <Font size="14.0" />
                                     </font>
@@ -83,7 +83,7 @@
                         </Label>
                         <AnchorPane prefHeight="38.0" prefWidth="300.0">
                             <children>
-                                <TextField fx:id="txtAddress" accessibleText="Date of Birth" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="38.0" prefWidth="270.0" promptText="---" style="-fx-background-color: white;" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                                <TextField fx:id="txtAddress" accessibleText="Date of Birth" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="38.0" prefWidth="270.0" promptText="Eg. No 37/2, abc Rd. Colombo 3." style="-fx-background-color: white;" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
                                     <font>
                                         <Font size="14.0" />
                                     </font>
@@ -107,7 +107,7 @@
                         </Label>
                         <AnchorPane prefHeight="48.0" prefWidth="300.0">
                             <children>
-                                <TextField fx:id="txtPhone" accessibleText="Date of Birth" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#txtPhone_OnKeyTyped" prefHeight="38.0" prefWidth="270.0" promptText="---" style="-fx-background-color: white;" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                                <TextField fx:id="txtPhone" accessibleText="Date of Birth" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#txtPhone_OnKeyTyped" prefHeight="38.0" prefWidth="270.0" promptText="Eg. 077-2851828" style="-fx-background-color: white;" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
                                     <font>
                                         <Font size="14.0" />
                                     </font>
@@ -131,7 +131,7 @@
                         </Label>
                         <AnchorPane prefHeight="48.0" prefWidth="300.0">
                             <children>
-                                <TextField fx:id="txtEmail" accessibleText="Date of Birth" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="38.0" prefWidth="270.0" promptText="---" style="-fx-background-color: white;" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                                <TextField fx:id="txtEmail" accessibleText="Date of Birth" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="38.0" prefWidth="270.0" promptText="Eg. anthony@gmail.com" style="-fx-background-color: white;" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
                                     <font>
                                         <Font size="14.0" />
                                     </font>
@@ -155,7 +155,7 @@
                   </Label>
                   <AnchorPane prefHeight="48.0" prefWidth="300.0">
                      <children>
-                        <TextField fx:id="txtRegister" accessibleText="Date of Birth" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="38.0" prefWidth="270.0" promptText="---" style="-fx-background-color: white;" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                        <TextField fx:id="txtRegister" accessibleText="Date of Birth" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="38.0" prefWidth="270.0" promptText="Eg. 5000.00" style="-fx-background-color: white;" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
                            <font>
                               <Font size="14.0" />
                            </font>
@@ -179,7 +179,7 @@
                   </Label>
                   <AnchorPane prefHeight="48.0" prefWidth="300.0">
                      <children>
-                        <TextField fx:id="txtPayment" accessibleText="Date of Birth" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="38.0" prefWidth="270.0" promptText="---" style="-fx-background-color: white;" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                        <TextField fx:id="txtPayment" accessibleText="Date of Birth" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="38.0" prefWidth="270.0" promptText="Eg. 100,000.00" style="-fx-background-color: white;" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
                            <font>
                               <Font size="14.0" />
                            </font>

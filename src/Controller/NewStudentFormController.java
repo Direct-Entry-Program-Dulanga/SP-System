@@ -25,15 +25,17 @@ public class NewStudentFormController {
     public RadioButton rbnDep;
     public RadioButton rbnGDse;
     public JFXButton btnSave;
+    public TextField txtRegisterDate;
     public TextField txtRegisterID;
     public AnchorPane root;
     public Label lblTitle;
     public TextField txtNIC;
 
-    private final StudentService studentService = new StudentService();
+    private StudentService studentService = new StudentService();
 
     public void initialize(){
-        MaterialUI.paintTextFields(txtStudentName, txtAddress, txtEmail, txtPhone, txtNIC);
+        MaterialUI.paintTextFields(txtStudentName, txtAddress, txtEmail, txtPhone, txtRegisterID, txtRegisterDate);
+
 //        setCourse();
 
         Platform.runLater(()->{
@@ -41,8 +43,8 @@ public class NewStudentFormController {
             if (root.getUserData() != null){
                 StudentTM tm = (StudentTM) root.getUserData();
                 Student student = studentService.findStudent(tm.getNic());
-
-                txtNIC.setText(student.getNic());
+                txtRegisterID.setEditable(false);
+                txtRegisterID.setText(student.getNic());
                 txtStudentName.setText(student.getFullName());
                 txtAddress.setText(student.getAddress());
                 txtPhone.setText(student.getContact());
@@ -74,23 +76,11 @@ public class NewStudentFormController {
 
 
 
-//    public void setCourse(){
-//        Button button = new Button("Submit");
-//        ToggleGroup ques = new ToggleGroup();
-//        rbnDep.setToggleGroup(ques);
-//        rbnGDse.setToggleGroup(ques);
-//
-//        button.setOnAction(e ->{
-//            if(rbnDep.isSelected()){
-//                button.getText()
-//            }
-//        });
-//    }
 
     public void btnSave_OnAction(ActionEvent actionEvent) {
         try {
             Student student = new Student(
-                    txtNIC.getText(),
+                    txtRegisterID.getText(),
                     txtStudentName.getText(),
                     txtAddress.getText(),
                     txtPhone.getText(),

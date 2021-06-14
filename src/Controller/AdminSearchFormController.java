@@ -29,7 +29,7 @@ public class AdminSearchFormController {
 
     public void initialize() {
         MaterialUI.paintTextFields(txtQuery);
-        tblAdStudents.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("registerID"));
+        tblAdStudents.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("nic"));
         tblAdStudents.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("fullName"));
         tblAdStudents.getColumns().get(2).setCellValueFactory(new PropertyValueFactory<>("address"));
 
@@ -67,7 +67,7 @@ public class AdminSearchFormController {
         try {
             Optional<ButtonType> buttonType = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure to delete this student?", ButtonType.YES, ButtonType.NO).showAndWait();
             if (buttonType.get() == ButtonType.YES) {
-                adminService.deleteStudent(tm.getRegisterID());
+                adminService.deleteStudent(tm.getNic());
                 tblAdStudents.getItems().remove(tm);
             }
         }catch (RuntimeException e){
@@ -88,7 +88,7 @@ public class AdminSearchFormController {
             secondaryStage.initModality(Modality.WINDOW_MODAL);
             secondaryStage.initOwner(txtQuery.getScene().getWindow());
             secondaryStage.setTitle("Update Student");
-            ctrl.navigate("Update Student","/view/StudentForm.fxml", AppBarIcon.NAV_ICON_NONE, null, tm);
+            ctrl.navigate("Update Student","/View/AdminStudentForm.fxml", AppBarIcon.NAV_ICON_NONE, null, tm);
 
             secondaryStage.showAndWait();
             tblAdStudents.refresh();
