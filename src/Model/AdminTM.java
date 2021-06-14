@@ -1,6 +1,6 @@
 package Model;
 
-public class StudentATM {
+public class AdminTM {
 
     private String registerID;
     private String fullName;
@@ -8,10 +8,10 @@ public class StudentATM {
     private double registerFee;
     private double paymentFee;
 
-    public StudentATM() {
+    public AdminTM() {
     }
 
-    public StudentATM(String registerID, String fullName, String address, double registerFee, double paymentFee) {
+    public AdminTM(String registerID, String fullName, String address, double registerFee, double paymentFee) {
         this.registerID = registerID;
         this.fullName = fullName;
         this.address = address;

@@ -31,7 +31,7 @@ public class SearchRegistrationFormController {
 
     public void initialize(){
         MaterialUI.paintTextFields(txtQuery);
-        tblSearch.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("registerID"));
+        tblSearch.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("nic"));
         tblSearch.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("fullName"));
         tblSearch.getColumns().get(2).setCellValueFactory(new PropertyValueFactory<>("address"));
         TableColumn<StudentTM, HBox> lastCol = (TableColumn<StudentTM, HBox>) tblSearch.getColumns().get(3);
@@ -55,14 +55,14 @@ public class SearchRegistrationFormController {
         tblSearch.getItems().clear();
 
         for (Student student : studentService.findStudents(query)) {
-            tblSearch.getItems().add(new StudentTM(student.getRegisterID(), student.getFullName(), student.getAddress()));
+            tblSearch.getItems().add(new StudentTM(student.getNic(), student.getFullName(), student.getAddress()));
         }
     }
 
     private void updateStudent(StudentTM tm) {
         try {
             Stage secondaryStage = new Stage();
-            FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/view/MainForm.fxml"));
+            FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/View/MainForm.fxml"));
             Scene secondaryScene = new Scene(loader.load());
             MainFormController ctrl = loader.getController();
 

@@ -22,7 +22,7 @@
             <children>
             <HBox>
                <children>
-                  <Label fx:id="lblAge5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="47.0" prefWidth="105.0" text="Register ID:">
+                  <Label fx:id="lblAge5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="47.0" prefWidth="130.0" text="Register ID:">
                      <padding>
                         <Insets left="10.0" right="10.0" />
                      </padding>
@@ -33,37 +33,13 @@
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <AnchorPane prefHeight="47.0" prefWidth="105.0">
+                  <AnchorPane prefHeight="48.0" prefWidth="300.0">
                      <children>
-                        <TextField fx:id="txtRegisterID" editable="false" layoutY="8.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="38.0" prefWidth="105.0" promptText="R-001" style="-fx-background-color: white;" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                        <TextField fx:id="txtNIC" layoutY="8.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="38.0" prefWidth="105.0" promptText="Eg: 961710065v" style="-fx-background-color: white;" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
                            <font>
                               <Font size="14.0" />
                            </font></TextField>
                      </children></AnchorPane>
-                  <Label fx:id="lblAge512" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="47.0" prefWidth="105.0">
-                     <padding>
-                        <Insets left="10.0" right="10.0" />
-                     </padding>
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="lblAge511" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="47.0" prefWidth="130.0" text="Register Date:">
-                     <padding>
-                        <Insets left="10.0" right="10.0" />
-                     </padding>
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Label>
-                  <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="47.0" prefWidth="130.0">
-                     <children>
-                        <TextField fx:id="txtRegisterDate" editable="false" layoutY="8.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="38.0" prefWidth="120.0" promptText="2010-01-01" style="-fx-background-color: white;" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
-                           <font>
-                              <Font size="14.0" />
-                           </font></TextField>
-                     </children>
-                  </AnchorPane>
                </children>
             </HBox>
             <HBox>

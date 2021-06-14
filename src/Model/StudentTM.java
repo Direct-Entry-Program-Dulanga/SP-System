@@ -2,25 +2,25 @@ package Model;
 
 public class StudentTM {
 
-    private String registerID;
+    private String nic;
     private String fullName;
     private String address;
 
     public StudentTM() {
     }
 
-    public StudentTM(String registerID, String fullName, String address) {
-        this.registerID = registerID;
+    public StudentTM(String nic, String fullName, String address) {
+        this.nic = nic;
         this.fullName = fullName;
         this.address = address;
     }
 
-    public String getRegisterID() {
-        return registerID;
+    public String getNic() {
+        return nic;
     }
 
-    public void setRegisterID(String registerID) {
-        this.registerID = registerID;
+    public void setNic(String nic) {
+        this.nic = nic;
     }
 
     public String getFullName() {

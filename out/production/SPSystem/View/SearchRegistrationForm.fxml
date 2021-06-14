@@ -21,7 +21,7 @@
         </AnchorPane>
         <TableView id="tbl-results" fx:id="tblSearch" layoutX="23.0" layoutY="181.0" prefHeight="380.0" prefWidth="555.0" AnchorPane.bottomAnchor="22.0" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="22.0">
             <columns>
-                <TableColumn prefWidth="99.0" text="Register ID" />
+                <TableColumn prefWidth="99.0" text="NIC" />
                 <TableColumn minWidth="7.0" prefWidth="155.0" text="Name" />
                 <TableColumn prefWidth="205.0" text="Address" />
                 <TableColumn prefWidth="94.0" />

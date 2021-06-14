@@ -1,7 +1,9 @@
 package Controller;
 
+import Model.Admin;
 import Model.Student;
 import Model.StudentTM;
+import Service.AdminService;
 import Service.StudentService;
 import com.jfoenix.controls.JFXButton;
 import javafx.application.Platform;
@@ -23,26 +25,24 @@ public class NewStudentFormController {
     public RadioButton rbnDep;
     public RadioButton rbnGDse;
     public JFXButton btnSave;
-    public TextField txtRegisterDate;
     public TextField txtRegisterID;
     public AnchorPane root;
     public Label lblTitle;
+    public TextField txtNIC;
 
-    private StudentService studentService = new StudentService();
+    private final StudentService studentService = new StudentService();
 
     public void initialize(){
-        MaterialUI.paintTextFields(txtStudentName, txtAddress, txtEmail, txtPhone, txtRegisterID, txtRegisterDate);
-        setCustomerID();
+        MaterialUI.paintTextFields(txtStudentName, txtAddress, txtEmail, txtPhone, txtNIC);
 //        setCourse();
 
         Platform.runLater(()->{
 
             if (root.getUserData() != null){
                 StudentTM tm = (StudentTM) root.getUserData();
-                Student student = studentService.findStudent(tm.getRegisterID());
+                Student student = studentService.findStudent(tm.getNic());
 
-                txtRegisterID.setEditable(false);
-                txtRegisterID.setText(student.getRegisterID());
+                txtNIC.setText(student.getNic());
                 txtStudentName.setText(student.getFullName());
                 txtAddress.setText(student.getAddress());
                 txtPhone.setText(student.getContact());
@@ -72,24 +72,7 @@ public class NewStudentFormController {
         }
     }
 
-    public void setCustomerID(){
-        if(StudentService.studentsDB.size()>0){
-            String tempNumber = StudentService.studentsDB.get(
-                    StudentService.studentsDB.size()-1).getRegisterID();
-            String array[] = tempNumber.split("R-");
-            int number = Integer.parseInt(array[1]);
-            number++;
 
-            if(number>100){
-                tempNumber = "R-"+number;
-            }else if(number>10){
-                tempNumber = "R-0"+number;
-            }
-            txtRegisterID.setText(tempNumber);
-        }else{
-            txtRegisterID.setText("R-001");
-        }
-    }
 
 //    public void setCourse(){
 //        Button button = new Button("Submit");
@@ -107,7 +90,7 @@ public class NewStudentFormController {
     public void btnSave_OnAction(ActionEvent actionEvent) {
         try {
             Student student = new Student(
-                    txtRegisterID.getText(),
+                    txtNIC.getText(),
                     txtStudentName.getText(),
                     txtAddress.getText(),
                     txtPhone.getText(),

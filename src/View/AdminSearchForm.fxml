@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="Controller.AdminStudentFormController"
+            fx:controller="Controller.AdminSearchFormController"
             style="-fx-background-color: white;"
             prefHeight="600.0" prefWidth="1000.0">
     <children>

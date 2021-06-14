@@ -4,29 +4,29 @@ import java.time.LocalDate;
 
 public class Student {
 
-    private String registerID;
+    private String nic;
     private String fullName;
     private String address;
     private String contact;
     private String email;
 
-    public Student(String s, double v, double v1) {
+    public Student() {
     }
 
-    public Student(String registerID, String fullName, String address, String contact, String email) {
-        this.registerID = registerID;
+    public Student(String nic, String fullName, String address, String contact, String email) {
+        this.nic = nic;
         this.fullName = fullName;
         this.address = address;
         this.contact = contact;
         this.email = email;
     }
 
-    public String getRegisterID() {
-        return registerID;
+    public String getNic() {
+        return nic;
     }
 
-    public void setRegisterID(String registerID) {
-        this.registerID = registerID;
+    public void setNic(String nic) {
+        this.nic = nic;
     }
 
     public String getFullName() {

@@ -1,7 +1,7 @@
 package Model;
 
 public class Admin {
-    private String registerID;
+    private String nic;
     private String fullName;
     private String address;
     private String contact;
@@ -12,8 +12,8 @@ public class Admin {
     public Admin() {
     }
 
-    public Admin(String registerID, String fullName, String address, String contact, String email, double registerFee, double paymentFee) {
-        this.registerID = registerID;
+    public Admin(String nic, String fullName, String address, String contact, String email, double registerFee, double paymentFee) {
+        this.nic = nic;
         this.fullName = fullName;
         this.address = address;
         this.contact = contact;
@@ -22,12 +22,12 @@ public class Admin {
         this.paymentFee = paymentFee;
     }
 
-    public String getRegisterID() {
-        return registerID;
+    public String getNic() {
+        return nic;
     }
 
-    public void setRegisterID(String registerID) {
-        this.registerID = registerID;
+    public void setNic(String nic) {
+        this.nic = nic;
     }
 
     public String getFullName() {
