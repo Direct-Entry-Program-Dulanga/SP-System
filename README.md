@@ -35,7 +35,7 @@ Student Payment System is a Java Fx Application. It creates for Manage Payment d
 
 ### License
 
-Version 1, 14 June 2021
+Version 1.0 , 14 June 2021
 
 Copyright &copy; 2021 DEP-7. All rights reserved.
 
