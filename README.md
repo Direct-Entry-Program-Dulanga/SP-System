@@ -1,12 +1,10 @@
 # Student Payment System
 
-[comment]: <> (A simple Java FX Application to study and demonstrate many Java and SE related stuff.)
-
-JavaFx Application to 
+Student Payment System is a Java Fx Application. It creates for Manage Payment details and course details.
 
 ### How to use this repo?
 
-1. Clone the repository first 
+1. Clone the repository first  'git clone'
 
 ``git@github.com:Direct-Entry-Program-Dulanga/SP-System.git``
 
@@ -18,18 +16,26 @@ JavaFx Application to
 
 5. Build and Run!
 
-### Resources
 
-1. Prototype can be found here in [Figma](https://www.figma.com/file/qWfzrE898rdAUL7BzSIp8E/Student-Payment-System-Prototype?node-id=0%3A2347) 
+###Note
 
-2. Open the JavaFX Application you can log in for **Regular User Part**
+2. Open the JavaFX Application you can log in for **Regular User Home Page**
 > Username: User
 > Password: 123
 
-3. Open the JavaFX Application you can log in for **Administration Part**
->
+3. Open the JavaFX Application you can log in for **Administration Home Page**
+>Username: Admin
+> Password: 123
+
+### Resources
+
+1. Prototype can be found here in [Figma](https://www.figma.com/file/yemZ6IKY6Z5HOxXHExEWbb/Student-Payment-System?node-id=7%3A0) 
+
+
 
 ### License
+
+Version 1, 14 June 2021
 
 Copyright &copy; 2021 DEP-7. All rights reserved.
 
