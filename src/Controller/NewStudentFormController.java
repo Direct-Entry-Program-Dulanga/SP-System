@@ -13,6 +13,7 @@ import javafx.scene.image.Image;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import util.MaterialUI;
+import util.MaterialUIError;
 
 import java.time.LocalDate;
 
@@ -25,26 +26,31 @@ public class NewStudentFormController {
     public RadioButton rbnDep;
     public RadioButton rbnGDse;
     public JFXButton btnSave;
-    public TextField txtRegisterDate;
-    public TextField txtRegisterID;
     public AnchorPane root;
     public Label lblTitle;
     public TextField txtNIC;
+    public Label lblNIC;
+    public Label lblAddress;
+    public Label lblContact;
+    public Label lblEmail;
+    public Label lblName;
 
     private StudentService studentService = new StudentService();
 
     public void initialize(){
-        MaterialUI.paintTextFields(txtStudentName, txtAddress, txtEmail, txtPhone, txtRegisterID, txtRegisterDate);
+        MaterialUI.paintTextFields(txtStudentName, txtAddress, txtEmail, txtPhone, txtNIC);
 
 //        setCourse();
+
 
         Platform.runLater(()->{
 
             if (root.getUserData() != null){
                 StudentTM tm = (StudentTM) root.getUserData();
                 Student student = studentService.findStudent(tm.getNic());
-                txtRegisterID.setEditable(false);
-                txtRegisterID.setText(student.getNic());
+
+                txtNIC.setEditable(false);
+                txtNIC.setText(student.getNic());
                 txtStudentName.setText(student.getFullName());
                 txtAddress.setText(student.getAddress());
                 txtPhone.setText(student.getContact());
@@ -58,45 +64,91 @@ public class NewStudentFormController {
     }
 
 
-    public void txtPhone_OnKeyTyped(KeyEvent keyEvent) {
-        if (keyEvent.getCharacter().equals("-") && (txtPhone.getText().length() == 3)){
-            return;
-        }
+    public void btnSave_OnAction(ActionEvent actionEvent) {
 
-        if (!Character.isDigit(keyEvent.getCharacter().charAt(0))){
-            keyEvent.consume();     // This is not going to forward to the Java FX Runtime Env.
-            return;
-        }
+                if(!isValidated()){
+                    MaterialUIError.paintTextFields(txtNIC, txtStudentName, txtAddress, txtPhone, txtEmail);
+                }else{
+                    Student student = new Student(
+                            txtNIC.getText(),
+                            txtStudentName.getText(),
+                            txtAddress.getText(),
+                            txtPhone.getText(),
+                            txtEmail.getText());
 
-        if ((txtPhone.getText().length() == 3) && (txtPhone.getCaretPosition() == txtPhone.getLength())){
-            txtPhone.appendText("-");
-            txtPhone.positionCaret(txtPhone.getText().length() +1);
-        }
+                    if (btnSave.getText().equals("ADD NEW STUDENT")) {
+                        studentService.saveStudent(student);
+                        txtNIC.clear();
+                        txtStudentName.clear();
+                        txtAddress.clear();
+                        txtPhone.clear();
+                        txtEmail.clear();
+                    } else {
+                        StudentTM tm = (StudentTM) root.getUserData();
+
+                        tm.setFullName(txtStudentName.getText());
+                        tm.setAddress(txtAddress.getText());
+                        studentService.updateStudent(student);
+                    }
+                    new Alert(Alert.AlertType.NONE, "Student has been saved successfully", ButtonType.OK).show();
+                }
+
     }
 
 
+    private boolean isValidated() {
+        String nic = txtNIC.getText();
+        String fullName = txtStudentName.getText();
+        String address = txtAddress.getText();
+        String contact = txtPhone.getText();
+        String email = txtEmail.getText();
 
+//        Student tm = (Student) root.getUserData();
+//        Student st = studentService.findStudent(tm.getNic());
 
-    public void btnSave_OnAction(ActionEvent actionEvent) {
-        try {
-            Student student = new Student(
-                    txtRegisterID.getText(),
-                    txtStudentName.getText(),
-                    txtAddress.getText(),
-                    txtPhone.getText(),
-                    txtEmail.getText());
+//        if (!nic.equals(st.getNic())) {
+//            lblNIC.setText("(!) NIC Already Exists");
+//            txtNIC.requestFocus();
+//            System.out.println("nic: "+ nic + ", studentTM nic:"+ st.getNic());
+////            MaterialUIError.paintTextFields(txtNIC);
+//            return false;
+//    }
+        if(!(nic.length() == 10 && nic.matches("\\d{9}[vV]"))){
+                lblNIC.setText("(!) Invalid NIC");
+            MaterialUIError.paintTextFields(txtNIC);
+                return false;
 
-            if (btnSave.getText().equals("ADD NEW STUDENT")){
-                studentService.saveStudent(student);
-            }else{
-                StudentTM tm = (StudentTM) root.getUserData();
-                tm.setFullName(txtStudentName.getText());
-                tm.setAddress(txtAddress.getText());
-                studentService.updateStudent(student);
-            }
-            new Alert(Alert.AlertType.NONE, "Student has been saved successfully", ButtonType.OK).show();
-        }catch (RuntimeException e){
-            new Alert(Alert.AlertType.ERROR, "Failed to save the student", ButtonType.OK).show();
+        }else if (!(fullName.trim().length() >= 3 || fullName.matches("[A-za-z\\s]|[.]"))) {
+            lblName.setText("(!) Invalid User Name");
+            MaterialUIError.paintTextFields(txtStudentName);
+            lblNIC.setVisible(false);
+            txtStudentName.requestFocus();
+            return false;
+        } else if (!(address.trim().length() >= 4 &&  address.matches("^[a-zA-Z0-9\\s,-/\\\\]+$"))) {
+            lblAddress.setText("(!) Invalid Address");
+            MaterialUIError.paintTextFields(txtAddress);
+            lblName.setVisible(false);
+            txtAddress.requestFocus();
+            return false;
+        } else if (!contact.matches("\\d{3}-\\d{7}")) {
+            lblContact.setText("(!) Invalid Contact");
+            MaterialUIError.paintTextFields(txtPhone);
+            lblAddress.setVisible(false);
+            txtPhone.requestFocus();
+            return false;
+        } else if (!email.matches("^\\w[\\w._]*\\w@(\\w?[\\w.])*[.]\\w{2,}")) {
+            lblEmail.setText("(!) Invalid Contact");
+            MaterialUIError.paintTextFields(txtEmail);
+            lblContact.setVisible(false);
+            txtEmail.requestFocus();
+            return false;
+        } else {
+            lblEmail.setVisible(false);
+            lblNIC.setVisible(false);
+            lblName.setVisible(false);
+            lblAddress.setVisible(false);
+            lblContact.setVisible(false);
+            return true;
         }
     }
 }

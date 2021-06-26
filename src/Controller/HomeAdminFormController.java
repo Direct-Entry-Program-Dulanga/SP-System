@@ -39,18 +39,18 @@ public class HomeAdminFormController {
 
     public void pneViewCourse_OnKeyReleased(KeyEvent keyEvent) {
         if (keyEvent.getCode() == KeyCode.ENTER || keyEvent.getCode() == KeyCode.SPACE) {
-            navigate("Search Registrations", "/View/SearchRegistrationForm.fxml");
+            navigate("Search Registrations", "/View/PaymentForm.fxml");
         }
     }
 
     public void pneViewCourse_OnMouseClicked(MouseEvent mouseEvent) {
-        navigate("Search Registrations", "/View/SearchRegistrationForm.fxml");
+        navigate("Search Registrations", "/View/PaymentForm.fxml");
     }
 
     private void navigate(String title, String url) {
         MainFormController ctrl = (MainFormController) pneSearchStudents.getScene().getUserData();
         ctrl.navigate(title, url, AppBarIcon.NAV_ICON_BACK, () ->
-                ctrl.navigate("Student Payment System", "/View/HomeForm.fxml", AppBarIcon.NAV_ICON_BACK));
+                ctrl.navigate("Student Payment System", "/View/HomeAdminForm.fxml", AppBarIcon.NAV_ICON_BACK));
     }
 
 
