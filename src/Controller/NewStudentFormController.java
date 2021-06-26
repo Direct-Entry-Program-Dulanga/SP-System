@@ -103,16 +103,6 @@ public class NewStudentFormController {
         String contact = txtPhone.getText();
         String email = txtEmail.getText();
 
-//        Student tm = (Student) root.getUserData();
-//        Student st = studentService.findStudent(tm.getNic());
-
-//        if (!nic.equals(st.getNic())) {
-//            lblNIC.setText("(!) NIC Already Exists");
-//            txtNIC.requestFocus();
-//            System.out.println("nic: "+ nic + ", studentTM nic:"+ st.getNic());
-////            MaterialUIError.paintTextFields(txtNIC);
-//            return false;
-//    }
         if(!(nic.length() == 10 && nic.matches("\\d{9}[vV]"))){
                 lblNIC.setText("(!) Invalid NIC");
             MaterialUIError.paintTextFields(txtNIC);
