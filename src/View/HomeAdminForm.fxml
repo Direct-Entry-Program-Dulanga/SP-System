@@ -7,11 +7,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" stylesheets="@css/MainFormStyles.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.HomeAdminFormController">
+<AnchorPane id="root" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" stylesheets="@css/StudentFormStyles.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.HomeAdminFormController">
    <children>
-      <JFXRippler layoutX="139.0" layoutY="116.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="90.0" prefWidth="300.0">
+      <JFXRippler layoutX="150.0" layoutY="116.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="90.0" prefWidth="300.0">
          <children>
-            <AnchorPane fx:id="pneAddNewStudent" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#pneViewStudent_OnKeyPress" onKeyReleased="#pneViewStudent_OnKeyReleased" onMouseClicked="#pneViewStudent_OnMouseClicked" prefHeight="90.0" prefWidth="300.0" style="-fx-background-color: #985EFF;" styleClass="menu">
+            <AnchorPane fx:id="pneAddNewStudent" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#pneViewStudent_OnKeyPress" onKeyReleased="#pneViewStudent_OnKeyReleased" onMouseClicked="#pneViewStudent_OnMouseClicked" prefHeight="90.0" prefWidth="300.0" style="-fx-background-color: #985EFF; -fx-border-radius: 10; -fx-background-radius: 10;" styleClass="menu">
                <children>
                   <Label layoutX="95.0" layoutY="56.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="15.0" prefWidth="180.0" text="Click to view students">
                      <font>
@@ -32,9 +32,9 @@
             </AnchorPane>
          </children>
       </JFXRippler>
-      <JFXRippler layoutX="139.0" layoutY="229.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="90.0" prefWidth="300.0">
+      <JFXRippler layoutX="150.0" layoutY="229.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="90.0" prefWidth="300.0">
          <children>
-            <AnchorPane fx:id="pneSearchStudents" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#pneViewCourse_OnKeyPress" onKeyReleased="#pneViewCourse_OnKeyReleased" onMouseClicked="#pneViewCourse_OnMouseClicked" prefHeight="90.0" prefWidth="300.0" style="-fx-background-color: #985EFF;" styleClass="menu">
+            <AnchorPane fx:id="pneSearchStudents" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#pneViewCourse_OnKeyPress" onKeyReleased="#pneViewCourse_OnKeyReleased" onMouseClicked="#pneViewCourse_OnMouseClicked" prefHeight="90.0" prefWidth="300.0" style="-fx-background-color: #985EFF; -fx-background-radius: 10; -fx-border-radius: 10;" styleClass="menu">
                <children>
                   <Label layoutX="95.0" layoutY="56.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="15.0" prefWidth="180.0" text="Click to view courses">
                      <font>

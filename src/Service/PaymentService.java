@@ -13,11 +13,11 @@ public class PaymentService {
     static {
 
         /* Let's add some dummy data */
-        Payment p1 = new Payment("C-001", "DEP ", 5000.00, 100000.00);
-        Payment p2 = new Payment("C-002", "GDSE ", 4000.00, 50000.00);
-        Payment p3 = new Payment("C-003", "SSS ", 6000.00, 40000.00);
-        Payment p4 = new Payment("C-004", "HRM ", 3000.00, 60000.00);
-        Payment p5 = new Payment("C-005", "LLL ", 4500.00, 120000.00);
+        Payment p1 = new Payment("C-001", "DEP ", 5000.00f, 100000.00f);
+        Payment p2 = new Payment("C-002", "GDSE ", 4000.00f, 50000.00f);
+        Payment p3 = new Payment("C-003", "SSS ", 6000.00f, 40000.00f);
+        Payment p4 = new Payment("C-004", "HRM ", 3000.00f, 60000.00f);
+        Payment p5 = new Payment("C-005", "LLL ", 4500.00f, 120000.00f);
 
         paymentDB.add(p1);
         paymentDB.add(p2);

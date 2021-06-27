@@ -52,4 +52,7 @@
     -fx-cursor: hand;
 }
 
+#root{
+    -fx-background-radius: 0 0 5px 5px;
+}
 

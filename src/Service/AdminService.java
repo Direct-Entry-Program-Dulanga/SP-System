@@ -13,11 +13,11 @@ public class AdminService {
     static {
 
         /* Let's add some dummy data */
-        Admin a1 = new Admin("945678124v", "Sadun ", "Colombo", "077-1234567", "abc@ijse.lk", 5000.00, 100000.00);
-        Admin a2 = new Admin("961710065v", "Dulanga ", "Galle", "077-1234567", "abc@ijse.lk", 5000.00, 100000.00);
-        Admin a3 = new Admin("965678135v", "Nuwan ", "Matara", "077-1234567", "abc@ijse.lk", 5000.00, 100000.00);
-        Admin a4 = new Admin("975675674v", "Amara ", "Kandy", "077-1234567", "abc@ijse.lk", 5000.00, 100000.00);
-        Admin a5 = new Admin("941358124v", "Kamal ", "Jaffna", "077-1234567", "abc@ijse.lk", 5000.00, 100000.00);
+        Admin a1 = new Admin("945678124v", "Sadun ", "Colombo", "077-1234567", "abc@ijse.lk", 5000.00f, 100000.00f);
+        Admin a2 = new Admin("961710065v", "Dulanga ", "Galle", "077-1234567", "abc@ijse.lk", 5000.00f, 100000.00f);
+        Admin a3 = new Admin("965678135v", "Nuwan ", "Matara", "077-1234567", "abc@ijse.lk", 5000.00f, 100000.00f);
+        Admin a4 = new Admin("975675674v", "Amara ", "Kandy", "077-1234567", "abc@ijse.lk", 5000.00f, 100000.00f);
+        Admin a5 = new Admin("941358124v", "Kamal ", "Jaffna", "077-1234567", "abc@ijse.lk", 5000.00f, 100000.00f);
 
         adminDB.add(a1);
         adminDB.add(a2);

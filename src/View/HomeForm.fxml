@@ -7,11 +7,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.HomeFormController">
+<AnchorPane id="root" fx:id="root" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" stylesheets="@css/StudentFormStyles.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.HomeFormController">
    <children>
       <JFXRippler layoutX="139.0" layoutY="116.0" prefHeight="96.0" prefWidth="289.0">
          <children>
-            <AnchorPane fx:id="pneAddNewStudent" onKeyPressed="#pneAddNewStudent_OnKeyPress" onKeyReleased="#pneAddNewStudent_OnKeyReleased" onMouseClicked="#pneAddNewStudent_OnMouseClicked" prefHeight="93.0" prefWidth="318.0" style="-fx-background-color: #985EFF;" styleClass="menu">
+            <AnchorPane fx:id="pneAddNewStudent" onKeyPressed="#pneAddNewStudent_OnKeyPress" onKeyReleased="#pneAddNewStudent_OnKeyReleased" onMouseClicked="#pneAddNewStudent_OnMouseClicked" prefHeight="93.0" prefWidth="318.0" style="-fx-background-color: #985EFF; -fx-background-radius: 10; -fx-border-radius: 10;" styleClass="menu">
                <children>
                   <Label layoutX="95.0" layoutY="56.0" text="Click to add a new student">
                      <font>
@@ -34,7 +34,7 @@
       </JFXRippler>
       <JFXRippler layoutX="139.0" layoutY="229.0" prefHeight="96.0" prefWidth="322.0">
          <children>
-            <AnchorPane fx:id="pneSearchStudents" onKeyPressed="#pneSearchStudents_OnKeyPress" onKeyReleased="#pneSearchStudents_OnKeyReleased" onMouseClicked="#pneSearchStudents_OnMouseClicked" prefHeight="96.0" prefWidth="338.0" style="-fx-background-color: #985EFF;" styleClass="menu">
+            <AnchorPane fx:id="pneSearchStudents" onKeyPressed="#pneSearchStudents_OnKeyPress" onKeyReleased="#pneSearchStudents_OnKeyReleased" onMouseClicked="#pneSearchStudents_OnMouseClicked" prefHeight="96.0" prefWidth="338.0" style="-fx-background-color: #985EFF; -fx-background-radius: 10; -fx-border-radius: 10;" styleClass="menu">
                <children>
                   <Label layoutX="95.0" layoutY="56.0" text="Click to view payments">
                      <font>

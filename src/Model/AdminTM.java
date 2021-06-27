@@ -5,13 +5,13 @@ public class AdminTM {
     private String nic;
     private String fullName;
     private String address;
-    private double registerFee;
-    private double paymentFee;
+    private float registerFee;
+    private float paymentFee;
 
     public AdminTM() {
     }
 
-    public AdminTM(String nic, String fullName, String address, double registerFee, double paymentFee) {
+    public AdminTM(String nic, String fullName, String address, float registerFee, float paymentFee) {
         this.nic = nic;
         this.fullName = fullName;
         this.address = address;
@@ -43,19 +43,19 @@ public class AdminTM {
         this.address = address;
     }
 
-    public double getRegisterFee() {
+    public float getRegisterFee() {
         return registerFee;
     }
 
-    public void setRegisterFee(double registerFee) {
+    public void setRegisterFee(float registerFee) {
         this.registerFee = registerFee;
     }
 
-    public double getPaymentFee() {
+    public float getPaymentFee() {
         return paymentFee;
     }
 
-    public void setPaymentFee(double paymentFee) {
+    public void setPaymentFee(float paymentFee) {
         this.paymentFee = paymentFee;
     }
 }

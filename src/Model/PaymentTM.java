@@ -3,13 +3,13 @@ package Model;
 public class PaymentTM {
     private String cid;
     private String courseName;
-    private double register;
-    private double payment;
+    private float register;
+    private float payment;
 
     public PaymentTM() {
     }
 
-    public PaymentTM(String cid, String courseName, double register, double payment) {
+    public PaymentTM(String cid, String courseName, float register, float payment) {
         this.cid = cid;
         this.courseName = courseName;
         this.register = register;
@@ -32,19 +32,19 @@ public class PaymentTM {
         this.courseName = courseName;
     }
 
-    public double getRegister() {
+    public float getRegister() {
         return register;
     }
 
-    public void setRegister(double register) {
+    public void setRegister(float register) {
         this.register = register;
     }
 
-    public double getPayment() {
+    public float getPayment() {
         return payment;
     }
 
-    public void setPayment(double payment) {
+    public void setPayment(float payment) {
         this.payment = payment;
     }
 }

@@ -75,8 +75,8 @@ public class AdminStudentFormController {
                     txtAddress.getText(),
                     txtPhone.getText(),
                     txtEmail.getText(),
-                    Double.parseDouble(txtRegister.getText()),
-                    Double.parseDouble(txtPayment.getText()));
+                    Float.parseFloat(txtRegister.getText()),
+                    Float.parseFloat(txtPayment.getText()));
 
             if (btnSave.getText().equals("UPDATE STUDENT")) {
                 adminService.saveStudent(admin);
@@ -138,13 +138,13 @@ public class AdminStudentFormController {
             lblPhone.setVisible(false);
             txtEmail.requestFocus();
             return false;
-        }else if(!register.matches("^[0-9,]{3,}[.]\\d$")) {
+        }else if(!register.matches("^\\d{3,}[.]\\d$")) {
             lblRegister.setText("(!) Invalid Register Payment");
             MaterialUIError.paintTextFields(txtEmail);
             lblEmail.setVisible(false);
             txtRegister.requestFocus();
             return false;
-        }else if(!payment.matches("^[0-9,]{3,}[.]\\d$")){
+        }else if(!payment.matches("^\\d{3,}[.]\\d$")){
             lblPayment.setText("(!) Invalid Full Payment");
             MaterialUIError.paintTextFields(txtEmail);
             lblRegister.setVisible(false);
