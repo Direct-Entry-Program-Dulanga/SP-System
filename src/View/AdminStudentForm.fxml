@@ -15,7 +15,7 @@
 <AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="600.0" style="-fx-background-color: white;" stylesheets="@css/StudentFormStyles.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AdminStudentFormController">
 
     <children>
-        <Label fx:id="lblTitle" layoutX="190.0" layoutY="38.0" text="Add New Student">
+        <Label fx:id="lblTitle" alignment="CENTER" layoutX="200.0" layoutY="37.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="48.0" prefWidth="200.0" text="Update Student">
             <font>
                 <Font size="24.0" />
             </font>
@@ -260,7 +260,7 @@
                 <Font size="10.0" />
             </font>
         </Label>
-            <JFXButton fx:id="btnSave" alignment="CENTER" layoutX="211.0" layoutY="637.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#btnSave_OnAction" prefHeight="40.0" prefWidth="166.0" style="-fx-background-color: #985EFF;" text="ADD NEW STUDENT">
+            <JFXButton fx:id="btnSave" alignment="CENTER" layoutX="211.0" layoutY="637.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#btnSave_OnAction" prefHeight="40.0" prefWidth="166.0" style="-fx-background-color: #985EFF;" text="UPDATE STUDENT">
                 <font>
                     <Font size="14.0" />
                 </font>

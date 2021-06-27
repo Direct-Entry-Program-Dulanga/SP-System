@@ -78,7 +78,7 @@ public class AdminStudentFormController {
                     Double.parseDouble(txtRegister.getText()),
                     Double.parseDouble(txtPayment.getText()));
 
-            if (btnSave.getText().equals("ADD NEW STUDENT")) {
+            if (btnSave.getText().equals("UPDATE STUDENT")) {
                 adminService.saveStudent(admin);
             } else {
                 AdminTM tm = (AdminTM) root.getUserData();

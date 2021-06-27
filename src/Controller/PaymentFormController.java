@@ -45,8 +45,8 @@ public class PaymentFormController {
             imgEdit.getStyleClass().add("action-icons");
             imgTrash.getStyleClass().add("action-icons");
 
-//            imgEdit.setOnMouseClicked(event -> updateStudent(param.getValue()));
-//            imgTrash.setOnMouseClicked(event -> deleteStudent(param.getValue()));
+            imgEdit.setOnMouseClicked(event -> updateStudent(param.getValue()));
+            imgTrash.setOnMouseClicked(event -> deleteStudent(param.getValue()));
 
             return new ReadOnlyObjectWrapper<>(new HBox(10, imgEdit, imgTrash));
         });
@@ -65,38 +65,38 @@ public class PaymentFormController {
         }
     }
 
-//    private void deleteStudent(AdminTM tm){
-//        try {
-//            Optional<ButtonType> buttonType = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure to delete this student?", ButtonType.YES, ButtonType.NO).showAndWait();
-//            if (buttonType.get() == ButtonType.YES) {
-//                paymentService.deleteStudent(tm.getNic());
-//                tblAPayment.getItems().remove(tm);
-//            }
-//        }catch (RuntimeException e){
-//            new Alert(Alert.AlertType.ERROR, "Failed to delete the item", ButtonType.OK).show();
-//        }
-//    }
+    private void deleteStudent(PaymentTM tm){
+        try {
+            Optional<ButtonType> buttonType = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure to delete this student?", ButtonType.YES, ButtonType.NO).showAndWait();
+            if (buttonType.get() == ButtonType.YES) {
+                paymentService.deleteStudent(tm.getCid());
+                tblAPayment.getItems().remove(tm);
+            }
+        }catch (RuntimeException e){
+            new Alert(Alert.AlertType.ERROR, "Failed to delete the item", ButtonType.OK).show();
+        }
+    }
 
-//    private void updateStudent(AdminTM tm){
-//        try {
-//            Stage secondaryStage = new Stage();
-//            FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/View/MainForm.fxml"));
-//            Scene secondaryScene = new Scene(loader.load());
-//            MainFormController ctrl = loader.getController();
-//
-//            secondaryStage.setScene(secondaryScene);
-//            secondaryScene.setFill(Color.TRANSPARENT);
-//            secondaryStage.initStyle(StageStyle.TRANSPARENT);
-//            secondaryStage.initModality(Modality.WINDOW_MODAL);
-//            secondaryStage.initOwner(txtQuery.getScene().getWindow());
-//            secondaryStage.setTitle("Update Payment");
-//            ctrl.navigate("Update Payment","/View/AdminStudentForm.fxml", AppBarIcon.NAV_ICON_NONE, null, tm);
-//
-//            secondaryStage.showAndWait();
-//            tblAPayment.refresh();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//    }
+    private void updateStudent(PaymentTM tm){
+        try {
+            Stage secondaryStage = new Stage();
+            FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/View/MainForm.fxml"));
+            Scene secondaryScene = new Scene(loader.load());
+            MainFormController ctrl = loader.getController();
+
+            secondaryStage.setScene(secondaryScene);
+            secondaryScene.setFill(Color.TRANSPARENT);
+            secondaryStage.initStyle(StageStyle.TRANSPARENT);
+            secondaryStage.initModality(Modality.WINDOW_MODAL);
+            secondaryStage.initOwner(txtQuery.getScene().getWindow());
+            secondaryStage.setTitle("Update Payment");
+            ctrl.navigate("Update Payment","/View/PaymentEditForm.fxml", AppBarIcon.NAV_ICON_NONE, null, tm);
+
+            secondaryStage.showAndWait();
+            tblAPayment.refresh();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
 }

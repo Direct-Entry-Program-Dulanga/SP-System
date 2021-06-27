@@ -59,14 +59,15 @@ public class PaymentService {
         return null;
     }
 
-//    public void updateStudent(Admin admin) {
-//        Admin s = findStudent(admin.getNic());
-//        int index = adminDB.indexOf(s);
-//        adminDB.set(index, admin);
-//    }
-//
-//    public void deleteStudent(String id) {
-//        Admin admin = findStudent(id);
-//        adminDB.remove(admin);
-//    }
+
+    public void updateStudent(Payment payment) {
+        Payment s = findStudent(payment.getCid());
+        int index = paymentDB.indexOf(s);
+        paymentDB.set(index, payment);
+    }
+
+    public void deleteStudent(String id) {
+        Payment payment = findStudent(id);
+        paymentDB.remove(payment);
+    }
 }
