@@ -5,6 +5,7 @@ import Model.Student;
 import Model.StudentTM;
 import Service.AdminService;
 import Service.StudentService;
+import Service.StudentServiceRedisImpl;
 import com.jfoenix.controls.JFXButton;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -35,7 +36,7 @@ public class NewStudentFormController {
     public Label lblEmail;
     public Label lblName;
 
-    private StudentService studentService = new StudentService();
+    private StudentServiceRedisImpl studentService = new StudentServiceRedisImpl();
 
     public void initialize(){
         MaterialUI.paintTextFields(txtStudentName, txtAddress, txtEmail, txtPhone, txtNIC);

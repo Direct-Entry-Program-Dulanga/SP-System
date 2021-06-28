@@ -45,7 +45,7 @@ public class PaymentEditFormController {
 
                 txtCourseID.setText(payment.getCid());
                 txtCourseName.setText(payment.getCourseName());
-                txtRegister.setText(String.valueOf(payment.getPayment()));
+                txtRegister.setText(String.valueOf(payment.getRegister()));
                 txtPayment.setText(String.valueOf(payment.getPayment()));
                 btnSave.setText("UPDATE STUDENT");
                 lblTitle.setText("Update Student");
@@ -83,7 +83,7 @@ public class PaymentEditFormController {
         String register = txtRegister.getText();
         String payment = txtPayment.getText();
 
-        if(!(cid.length() == 10 && cid.matches("^[C][-]\\d{2,}"))){
+        if(!cid.matches("^[C][-]\\d{2,}")){
             lblCID.setText("(!) Invalid NIC");
             MaterialUIError.paintTextFields(txtCourseID);
             return false;

@@ -3,6 +3,7 @@ package Controller;
 import Model.Student;
 import Model.StudentTM;
 import Service.StudentService;
+import Service.StudentServiceRedisImpl;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -27,7 +28,7 @@ public class SearchRegistrationFormController {
     public TextField txtQuery;
     public TableView<StudentTM> tblSearch;
 
-    private final StudentService studentService = new StudentService();
+    private final StudentServiceRedisImpl studentService = new StudentServiceRedisImpl();
 
     public void initialize(){
         MaterialUI.paintTextFields(txtQuery);
