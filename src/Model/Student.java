@@ -23,6 +23,16 @@ public class Student {
         this.email = email;
     }
 
+    public static Student fromMap(String nic, Map<String, String> data){
+        return new Student(
+                nic,
+                data.get("fullName"),
+                data.get("address"),
+                data.get("contact"),
+                data.get("email")
+        );
+    }
+
     public String getNic() {
         return nic;
     }
@@ -70,16 +80,6 @@ public class Student {
         map.put("contact", contact);
         map.put("email", email);
         return map;
-    }
-
-    public static Student fromMap(String nic, Map<String, String> data){
-        return new Student(
-                nic,
-                data.get("fullName"),
-                data.get("address"),
-                data.get("contact"),
-                data.get("email")
-        );
     }
 
 

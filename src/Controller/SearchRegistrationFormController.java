@@ -2,7 +2,6 @@ package Controller;
 
 import Model.Student;
 import Model.StudentTM;
-import Service.StudentService;
 import Service.StudentServiceRedisImpl;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.fxml.FXMLLoader;
@@ -25,12 +24,11 @@ import java.io.IOException;
 public class SearchRegistrationFormController {
 
 
+    private final StudentServiceRedisImpl studentService = new StudentServiceRedisImpl();
     public TextField txtQuery;
     public TableView<StudentTM> tblSearch;
 
-    private final StudentServiceRedisImpl studentService = new StudentServiceRedisImpl();
-
-    public void initialize(){
+    public void initialize() {
         MaterialUI.paintTextFields(txtQuery);
         tblSearch.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("nic"));
         tblSearch.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("fullName"));
@@ -52,14 +50,6 @@ public class SearchRegistrationFormController {
         loadAllStudents("");
     }
 
-    private void loadAllStudents(String query) {
-        tblSearch.getItems().clear();
-
-        for (Student student : studentService.findStudents(query)) {
-            tblSearch.getItems().add(new StudentTM(student.getNic(), student.getFullName(), student.getAddress()));
-        }
-    }
-
     private void updateStudent(StudentTM tm) {
         try {
             Stage secondaryStage = new Stage();
@@ -73,12 +63,20 @@ public class SearchRegistrationFormController {
             secondaryStage.initModality(Modality.WINDOW_MODAL);
             secondaryStage.initOwner(txtQuery.getScene().getWindow());
             secondaryStage.setTitle("Update Student");
-            ctrl.navigate("Update Student","/View/NewStudentFrom.fxml", AppBarIcon.NAV_ICON_NONE, null, tm);
+            ctrl.navigate("Update Student", "/View/NewStudentFrom.fxml", AppBarIcon.NAV_ICON_NONE, null, tm);
 
             secondaryStage.showAndWait();
             tblSearch.refresh();
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    private void loadAllStudents(String query) {
+        tblSearch.getItems().clear();
+
+        for (Student student : studentService.findStudents(query)) {
+            tblSearch.getItems().add(new StudentTM(student.getNic(), student.getFullName(), student.getAddress()));
         }
     }
 }

@@ -1,6 +1,8 @@
 package Model;
 
-public class StudentTM {
+import java.io.Serializable;
+
+public class StudentTM implements Serializable {
 
     private String nic;
     private String fullName;
@@ -10,9 +12,9 @@ public class StudentTM {
     }
 
     public StudentTM(String nic, String fullName, String address) {
-        this.nic = nic;
-        this.fullName = fullName;
-        this.address = address;
+        this.setNic(nic);
+        this.setFullName(fullName);
+        this.setAddress(address);
     }
 
     public String getNic() {
@@ -37,5 +39,14 @@ public class StudentTM {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    @Override
+    public String toString() {
+        return "StudentTM{" +
+                "nic='" + getNic() + '\'' +
+                ", fullName='" + getFullName() + '\'' +
+                ", address='" + getAddress() + '\'' +
+                '}';
     }
 }

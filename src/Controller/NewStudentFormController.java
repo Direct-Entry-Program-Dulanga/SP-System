@@ -1,23 +1,17 @@
 package Controller;
 
-import Model.Admin;
 import Model.Student;
 import Model.StudentTM;
-import Service.AdminService;
-import Service.StudentService;
 import Service.StudentServiceRedisImpl;
 import Service.exception.DuplicateEntryException;
+import Service.exception.NotFoundException;
 import com.jfoenix.controls.JFXButton;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
-import javafx.scene.image.Image;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import util.MaterialUI;
 import util.MaterialUIError;
-
-import java.time.LocalDate;
 
 public class NewStudentFormController {
 
@@ -37,19 +31,25 @@ public class NewStudentFormController {
     public Label lblEmail;
     public Label lblName;
 
-    private StudentServiceRedisImpl studentService = new StudentServiceRedisImpl();
+    private final StudentServiceRedisImpl studentService = new StudentServiceRedisImpl();
 
-    public void initialize(){
+    public void initialize() {
         MaterialUI.paintTextFields(txtStudentName, txtAddress, txtEmail, txtPhone, txtNIC);
 
 //        setCourse();
 
 
-        Platform.runLater(()->{
+        Platform.runLater(() -> {
 
-            if (root.getUserData() != null){
+            if (root.getUserData() != null) {
                 StudentTM tm = (StudentTM) root.getUserData();
-                Student student = studentService.findStudent(tm.getNic());
+                Student student = null;
+                try {
+                    student = studentService.findStudent(tm.getNic());
+                } catch (NotFoundException e) {
+                    e.printStackTrace();
+                    new Alert(Alert.AlertType.ERROR, "Something terribly went wrong, please contact DEPPO!", ButtonType.OK).show();
+                }
 
                 txtNIC.setEditable(false);
                 txtNIC.setText(student.getNic());
@@ -66,34 +66,34 @@ public class NewStudentFormController {
     }
 
 
-    public void btnSave_OnAction(ActionEvent actionEvent) throws DuplicateEntryException {
+    public void btnSave_OnAction(ActionEvent actionEvent) throws DuplicateEntryException, NotFoundException {
 
-                if(!isValidated()){
-                    MaterialUIError.paintTextFields(txtNIC, txtStudentName, txtAddress, txtPhone, txtEmail);
-                }else{
-                    Student student = new Student(
-                            txtNIC.getText(),
-                            txtStudentName.getText(),
-                            txtAddress.getText(),
-                            txtPhone.getText(),
-                            txtEmail.getText());
+        if (!isValidated()) {
+            MaterialUIError.paintTextFields(txtNIC, txtStudentName, txtAddress, txtPhone, txtEmail);
+        } else {
+            Student student = new Student(
+                    txtNIC.getText(),
+                    txtStudentName.getText(),
+                    txtAddress.getText(),
+                    txtPhone.getText(),
+                    txtEmail.getText());
 
-                    if (btnSave.getText().equals("ADD NEW STUDENT")) {
-                        studentService.saveStudent(student);
-                        txtNIC.clear();
-                        txtStudentName.clear();
-                        txtAddress.clear();
-                        txtPhone.clear();
-                        txtEmail.clear();
-                    } else {
-                        StudentTM tm = (StudentTM) root.getUserData();
+            if (btnSave.getText().equals("ADD NEW STUDENT")) {
+                studentService.saveStudent(student);
+                txtNIC.clear();
+                txtStudentName.clear();
+                txtAddress.clear();
+                txtPhone.clear();
+                txtEmail.clear();
+            } else {
+                StudentTM tm = (StudentTM) root.getUserData();
 
-                        tm.setFullName(txtStudentName.getText());
-                        tm.setAddress(txtAddress.getText());
-                        studentService.updateStudent(student);
-                    }
-                    new Alert(Alert.AlertType.NONE, "Student has been saved successfully", ButtonType.OK).show();
-                }
+                tm.setFullName(txtStudentName.getText());
+                tm.setAddress(txtAddress.getText());
+                studentService.updateStudent(student);
+            }
+            new Alert(Alert.AlertType.NONE, "Student has been saved successfully", ButtonType.OK).show();
+        }
 
     }
 
@@ -105,18 +105,18 @@ public class NewStudentFormController {
         String contact = txtPhone.getText();
         String email = txtEmail.getText();
 
-        if(!(nic.length() == 10 && nic.matches("\\d{9}[vV]"))){
-                lblNIC.setText("(!) Invalid NIC");
+        if (!(nic.length() == 10 && nic.matches("\\d{9}[vV]"))) {
+            lblNIC.setText("(!) Invalid NIC");
             MaterialUIError.paintTextFields(txtNIC);
-                return false;
+            return false;
 
-        }else if (!(fullName.trim().length() >= 3 || fullName.matches("[A-za-z\\s]|[.]"))) {
+        } else if (!(fullName.trim().length() >= 3 || fullName.matches("[A-za-z\\s]|[.]"))) {
             lblName.setText("(!) Invalid User Name");
             MaterialUIError.paintTextFields(txtStudentName);
             lblNIC.setVisible(false);
             txtStudentName.requestFocus();
             return false;
-        } else if (!(address.trim().length() >= 4 &&  address.matches("^[a-zA-Z0-9\\s,-/\\\\]+$"))) {
+        } else if (!(address.trim().length() >= 4 && address.matches("^[a-zA-Z0-9\\s,-/\\\\]+$"))) {
             lblAddress.setText("(!) Invalid Address");
             MaterialUIError.paintTextFields(txtAddress);
             lblName.setVisible(false);

@@ -1,5 +1,6 @@
 import Controller.MainFormController;
 import javafx.scene.control.Alert;
+import redis.clients.jedis.Jedis;
 import util.AppBarIcon;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -16,18 +17,20 @@ public class AppInitializer extends Application {
     public static void main(String[] args) {
         launch(args);
 
+        new Jedis("localhost", 9090).shutdown();
+        System.out.println("working");
     }
 
     @Override
     public void start(Stage primaryStage) throws IOException {
 
-        try{
-            spinUpRedisServerInstance();
-        }catch (Exception e){
-            e.printStackTrace();
-            new Alert(Alert.AlertType.ERROR, "Failed to load data, please contact").show();
-            return;
-        }
+//        try{
+//            spinUpRedisServerInstance();
+//        }catch (Exception e){
+//            e.printStackTrace();
+//            new Alert(Alert.AlertType.ERROR, "Failed to load data, please contact").show();
+//            return;
+//        }
         FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("/View/MainForm.fxml"));
         Parent root = fxmlLoader.load();
         Scene mainScene = new Scene(root);
@@ -40,16 +43,18 @@ public class AppInitializer extends Application {
         primaryStage.setTitle("Student Payment System");
         primaryStage.show();
         primaryStage.centerOnScreen();
+
+
     }
 
-    private void spinUpRedisServerInstance() throws Exception {
-        String[] commands = {"redis-server", "redis.conf"};
-        Process redisServer = Runtime.getRuntime().exec(commands);
-
-        int exitCode = redisServer.waitFor();
-
-        if (exitCode != 0) {
-            throw new Exception("Failed to spin up the redis server instance");
-        }
-    }
+//    private void spinUpRedisServerInstance() throws Exception {
+//        String[] commands = {"redis-server", "redis.conf"};
+//        Process redisServer = Runtime.getRuntime().exec(commands);
+//
+//        int exitCode = redisServer.waitFor();
+//
+//        if (exitCode != 0) {
+//            throw new Exception("Failed to spin up the redis server instance");
+//        }
+//    }
 }
