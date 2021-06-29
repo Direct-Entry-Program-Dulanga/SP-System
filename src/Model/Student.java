@@ -1,6 +1,8 @@
 package Model;
 
 import java.time.LocalDate;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Student {
 
@@ -59,5 +61,26 @@ public class Student {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Map<String, String> toMap(){
+        HashMap<String, String> map = new HashMap<>();
+        map.put("fullName", fullName);
+        map.put("address", address);
+        map.put("contact", contact);
+        map.put("email", email);
+        return map;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "nic='" + nic + '\'' +
+                ", fullName='" + fullName + '\'' +
+                ", address='" + address + '\'' +
+                ", contact='" + contact + '\'' +
+                ", email='" + email + '\'' +
+                '}';
     }
 }

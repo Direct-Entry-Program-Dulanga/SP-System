@@ -33,10 +33,11 @@ public class StudentServiceRedisImpl {
         if(client.exists(student.getNic())){
             throw new DuplicateEntryException();
         }
-        client.hset(student.getNic(), "name", student.getFullName());
-        client.hset(student.getNic(), "address", student.getAddress());
-        client.hset(student.getNic(), "contact", student.getContact());
-        client.hset(student.getNic(), "email", student.getEmail());
+//        client.hset(student.getNic(), "name", student.getFullName());
+//        client.hset(student.getNic(), "address", student.getAddress());
+//        client.hset(student.getNic(), "contact", student.getContact());
+//        client.hset(student.getNic(), "email", student.getEmail());
+        client.hset(student.getNic(), student.toMap());
 
     }
 
@@ -45,6 +46,7 @@ public class StudentServiceRedisImpl {
         if(!client.exists(student.getNic())){
             throw new DuplicateEntryException();
         }
+        client.hset(student.getNic(), student.toMap());
     }
 
 
