@@ -6,6 +6,7 @@ import Model.StudentTM;
 import Service.AdminService;
 import Service.StudentService;
 import Service.StudentServiceRedisImpl;
+import Service.exception.DuplicateEntryException;
 import com.jfoenix.controls.JFXButton;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -65,7 +66,7 @@ public class NewStudentFormController {
     }
 
 
-    public void btnSave_OnAction(ActionEvent actionEvent) {
+    public void btnSave_OnAction(ActionEvent actionEvent) throws DuplicateEntryException {
 
                 if(!isValidated()){
                     MaterialUIError.paintTextFields(txtNIC, txtStudentName, txtAddress, txtPhone, txtEmail);

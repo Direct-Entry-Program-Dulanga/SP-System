@@ -1,6 +1,8 @@
 package Service;
 
 import Model.Student;
+import Service.exception.DuplicateEntryException;
+import redis.clients.jedis.Jedis;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,12 +28,23 @@ public class StudentServiceRedisImpl {
 
     public StudentServiceRedisImpl() {}
 
-    public void saveStudent(Student student) {
+    public void saveStudent(Student student) throws DuplicateEntryException {
+        Jedis client = new Jedis("localhost", 5050);
+        if(client.exists(student.getNic())){
+            throw new DuplicateEntryException();
+        }
+        client.hset(student.getNic(), "name", student.getFullName());
+        client.hset(student.getNic(), "address", student.getAddress());
+        client.hset(student.getNic(), "contact", student.getContact());
+        client.hset(student.getNic(), "email", student.getEmail());
 
     }
 
-    public void updateStudent(Student student) {
-
+    public void updateStudent(Student student) throws DuplicateEntryException {
+        Jedis client = new Jedis("localhost", 5050);
+        if(!client.exists(student.getNic())){
+            throw new DuplicateEntryException();
+        }
     }
 
 
