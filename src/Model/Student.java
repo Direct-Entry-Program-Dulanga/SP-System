@@ -72,6 +72,16 @@ public class Student {
         return map;
     }
 
+    public static Student fromMap(String nic, Map<String, String> data){
+        return new Student(
+                nic,
+                data.get("fullName"),
+                data.get("address"),
+                data.get("contact"),
+                data.get("email")
+        );
+    }
+
 
     @Override
     public String toString() {

@@ -2,10 +2,13 @@ package Service;
 
 import Model.Student;
 import Service.exception.DuplicateEntryException;
+import Service.exception.NotFoundException;
 import redis.clients.jedis.Jedis;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 public class StudentServiceRedisImpl {
 //    public static final List<Student> studentsDB = new ArrayList<>();
@@ -26,7 +29,11 @@ public class StudentServiceRedisImpl {
 //        studentsDB.add(s5);
 //    }
 
-    public StudentServiceRedisImpl() {}
+    private final Jedis client;
+
+    public StudentServiceRedisImpl() {
+         client = new Jedis("localhost", 5050);
+    }
 
     public void saveStudent(Student student) throws DuplicateEntryException {
         Jedis client = new Jedis("localhost", 5050);
@@ -42,24 +49,52 @@ public class StudentServiceRedisImpl {
     }
 
     public void updateStudent(Student student) throws DuplicateEntryException {
-        Jedis client = new Jedis("localhost", 5050);
         if(!client.exists(student.getNic())){
             throw new DuplicateEntryException();
         }
         client.hset(student.getNic(), student.toMap());
     }
 
+    public void deleteStudent(String nic) throws NotFoundException {
+        if(!client.exists(nic)){
+            throw new NotFoundException();
+        }
+        client.del(nic);
+    }
+
+    private boolean existsStudent(String nic){
+        return  client.exists(nic);
+    }
+
+    public Student findStudent(String nic) throws NotFoundException {
+        if(!client.exists(nic)){
+            throw new NotFoundException();
+        }
+        return Student.fromMap(nic, client.hgetAll(nic));
+    }
 
     public List<Student> findAllStudents() {
-        return null;
+        List<Student> studentList = new ArrayList<>();
+        Set<String> nicList = client.keys("+");
+        for (String nic: nicList
+             ) {
+            studentList.add(Student.fromMap(nic, client.hgetAll(nic)));
+        }
+        return studentList;
     }
 
-    public Student findStudent(String registerID) {
-        return null;
-    }
+    public List<Student> finStudents(String query){
+        List<Student> searchResult = new ArrayList<>();
+        Set<String> nicList = client.keys("+");
 
-    public List<Student> findStudents(String query) {
+        for (String nic: nicList
+             ) {
+            if(nic.contains(query)){
+                searchResult.add(Student.fromMap(nic, client.hgetAll(nic)));
+            }else {
 
-        return null;
+            }
+
+        }
     }
 }
