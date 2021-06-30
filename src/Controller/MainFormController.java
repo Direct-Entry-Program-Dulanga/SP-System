@@ -88,7 +88,8 @@ public class MainFormController {
 //                    primaryStage.setY((visualBounds.getHeight() - primaryStage.getHeight())/2);
             });
         } catch (IOException e) {
-            e.printStackTrace();
+//            e.printStackTrace();
+            throw new RuntimeException(e);
         }
     }
 

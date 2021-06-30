@@ -44,9 +44,13 @@ public class StudentTM implements Serializable {
     @Override
     public String toString() {
         return "StudentTM{" +
-                "nic='" + getNic() + '\'' +
-                ", fullName='" + getFullName() + '\'' +
-                ", address='" + getAddress() + '\'' +
+                "nic='" + nic + '\'' +
+                ", fullName='" + fullName + '\'' +
+                ", address='" + address + '\'' +
                 '}';
     }
+
+
+
+
 }

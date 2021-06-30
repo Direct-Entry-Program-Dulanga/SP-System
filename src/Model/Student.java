@@ -1,10 +1,11 @@
 package Model;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Student {
+public class Student implements Serializable {
 
     private String nic;
     private String fullName;
@@ -23,7 +24,7 @@ public class Student {
         this.email = email;
     }
 
-    public static Student fromMap(String nic, Map<String, String> data){
+    public static Student fromMap(String nic, Map<String, String> data) {
         return new Student(
                 nic,
                 data.get("fullName"),
@@ -73,7 +74,7 @@ public class Student {
         this.email = email;
     }
 
-    public Map<String, String> toMap(){
+    public Map<String, String> toMap() {
         HashMap<String, String> map = new HashMap<>();
         map.put("fullName", fullName);
         map.put("address", address);

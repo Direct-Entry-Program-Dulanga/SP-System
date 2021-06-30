@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="root" maxWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" style="-fx-background-color: white;" stylesheets="@css/SearchStudentsFormStyles.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.SearchRegistrationFormController">
+    <children>
+        <Label layoutX="203.0" layoutY="35.0" text="Search Students">
+            <font>
+                <Font size="24.0" />
+            </font>
+        </Label>
+        <AnchorPane layoutX="23.0" layoutY="102.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="48.0" prefWidth="556.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0">
+            <children>
+                <TextField fx:id="txtQuery" accessibleText="Query" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="38.0" prefWidth="545.0" promptText="Enter student name, nic, contact number, email, etc." style="-fx-background-color: white;" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
+            </children>
+        </AnchorPane>
+        <TableView id="tbl-results" fx:id="tblSearch" layoutX="23.0" layoutY="181.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#tblSearch_OnKeyPressed" prefHeight="403.0" prefWidth="560.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+            <columns>
+                <TableColumn prefWidth="99.0" text="NIC" />
+                <TableColumn minWidth="7.0" prefWidth="155.0" text="Name" />
+                <TableColumn prefWidth="205.0" text="Address" />
+                <TableColumn prefWidth="100.0" />
+            </columns>
+        </TableView>
+    </children>
+</AnchorPane>

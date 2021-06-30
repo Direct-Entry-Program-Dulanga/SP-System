@@ -11,6 +11,8 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Modality;
@@ -42,7 +44,7 @@ public class SearchRegistrationFormController {
 
             imgEdit.setOnMouseClicked(event -> updateStudent(param.getValue()));
 
-            return new ReadOnlyObjectWrapper<>(new HBox(5, imgEdit));
+            return new ReadOnlyObjectWrapper<>(new HBox(10, imgEdit));
         });
 
         txtQuery.textProperty().addListener((observable, oldValue, newValue) -> loadAllStudents(newValue));
@@ -72,11 +74,17 @@ public class SearchRegistrationFormController {
         }
     }
 
-    private void loadAllStudents(String query) {
+    private void loadAllStudents(String query){
         tblSearch.getItems().clear();
 
         for (Student student : studentService.findStudents(query)) {
             tblSearch.getItems().add(new StudentTM(student.getNic(), student.getFullName(), student.getAddress()));
+        }
+    }
+
+    public void tblSearch_OnKeyPressed(KeyEvent keyEvent) {
+        if (keyEvent.getCode() == KeyCode.ENTER) {
+            updateStudent(tblSearch.getSelectionModel().getSelectedItem());
         }
     }
 }
