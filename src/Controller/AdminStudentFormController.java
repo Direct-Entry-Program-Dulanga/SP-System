@@ -6,7 +6,6 @@ import Model.Student;
 import Model.StudentTM;
 import Service.AdminService;
 import Service.StudentService;
-import Service.StudentServiceRedisImpl;
 import com.jfoenix.controls.JFXButton;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -31,8 +30,7 @@ public class AdminStudentFormController {
     public JFXButton btnSave;
     public AnchorPane root;
 
-    private final StudentServiceRedisImpl studentService = new StudentServiceRedisImpl();
-
+    private final AdminService adminService = new AdminService();
     public Label lblNIC;
     public Label lblName;
     public Label lblAddress;
@@ -43,21 +41,20 @@ public class AdminStudentFormController {
 
 
     public void initialize(){
-        MaterialUI.paintTextFields(txtStudentName, txtAddress, txtEmail, txtPhone, txtNIC, txtPayment);
+        MaterialUI.paintTextFields(txtStudentName, txtAddress, txtEmail, txtPhone, txtNIC, txtPayment, txtRegister);
 //        setCourse();
 
         Platform.runLater(()->{
 
             if (root.getUserData() != null){
                 AdminTM tm = (AdminTM) root.getUserData();
-                Admin admin = studentService.findStudent(tm.getNic());
+                Admin admin = adminService.findStudent(tm.getNic());
 
                 txtNIC.setText(admin.getNic());
                 txtStudentName.setText(admin.getFullName());
                 txtAddress.setText(admin.getAddress());
                 txtPhone.setText(admin.getContact());
                 txtEmail.setText(admin.getEmail());
-                txtRegister.setText(admin.getRegisterFee());
                 txtPayment.setText(admin.getPaymentFee());
                 btnSave.setText("UPDATE STUDENT");
                 lblTitle.setText("Update Student");

@@ -27,7 +27,7 @@ import java.util.Optional;
 public class SearchRegistrationFormController {
 
 
-    private final StudentServiceRedisImpl studentService = new StudentServiceRedisImpl();
+    private StudentServiceRedisImpl studentService = new StudentServiceRedisImpl();
     public TextField txtQuery;
     public TableView<StudentTM> tblSearch;
 
@@ -95,6 +95,8 @@ public class SearchRegistrationFormController {
 
         for (Student student : studentService.findStudents(query)) {
             tblSearch.getItems().add(new StudentTM(student.getNic(), student.getFullName(), student.getAddress()));
+
+            System.out.println(tblSearch.getItems().add(new StudentTM(student.getNic(), student.getFullName(), student.getAddress())));
         }
     }
 

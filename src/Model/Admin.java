@@ -9,7 +9,6 @@ public class Admin {
     private String address;
     private String contact;
     private String email;
-    private String registerFee;
     private String paymentFee;
 
     public Admin() {
@@ -21,7 +20,6 @@ public class Admin {
         this.address = address;
         this.contact = contact;
         this.email = email;
-        this.registerFee = registerFee;
         this.paymentFee = paymentFee;
     }
 
@@ -63,14 +61,6 @@ public class Admin {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getRegisterFee() {
-        return registerFee;
-    }
-
-    public void setRegisterFee(String registerFee) {
-        this.registerFee = registerFee;
     }
 
     public String getPaymentFee() {

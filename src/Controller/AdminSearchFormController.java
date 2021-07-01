@@ -58,7 +58,7 @@ public class AdminSearchFormController {
         tblAdStudents.getItems().clear();
 
         for (Admin admin : adminService.findStudents(query)) {
-            tblAdStudents.getItems().add(new AdminTM(admin.getNic(), admin.getFullName(), admin.getAddress(), admin.getRegisterFee(), admin.getPaymentFee()));
+            tblAdStudents.getItems().add(new AdminTM(admin.getNic(), admin.getFullName(), admin.getAddress(), admin.getPaymentFee()));
             System.out.println(tblAdStudents.getItems());
         }
     }

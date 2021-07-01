@@ -27,6 +27,14 @@ public class AppInitializer extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
 
+        Thread.setDefaultUncaughtExceptionHandler(new Thread.UncaughtExceptionHandler() {
+            @Override
+            public void uncaughtException(Thread t, Throwable e) {
+                new Alert(Alert.AlertType.ERROR, "Something will terribly wrong").show();
+                System.exit(1);
+            }
+        });
+
         AnchorPane root = FXMLLoader.load(this.getClass().getResource("/View/SplashScreenForm.fxml"));
         Scene scene = new Scene(root);
         scene.setFill(Color.TRANSPARENT);
