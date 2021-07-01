@@ -21,9 +21,9 @@
         </AnchorPane>
         <TableView id="tbl-results" fx:id="tblSearch" layoutX="23.0" layoutY="181.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#tblSearch_OnKeyPressed" prefHeight="403.0" prefWidth="560.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
             <columns>
-                <TableColumn prefWidth="99.0" text="NIC" />
-                <TableColumn minWidth="7.0" prefWidth="155.0" text="Name" />
-                <TableColumn prefWidth="205.0" text="Address" />
+                <TableColumn prefWidth="126.0" text="NIC" />
+                <TableColumn minWidth="7.0" prefWidth="157.0" text="Name" />
+                <TableColumn prefWidth="176.0" text="Address" />
                 <TableColumn prefWidth="100.0" />
             </columns>
         </TableView>

@@ -45,18 +45,18 @@ public class PaymentFormController {
             imgEdit.getStyleClass().add("action-icons");
             imgTrash.getStyleClass().add("action-icons");
 
-            imgEdit.setOnMouseClicked(event -> updateStudent(param.getValue()));
-            imgTrash.setOnMouseClicked(event -> deleteStudent(param.getValue()));
+            imgEdit.setOnMouseClicked(event -> updatePayment(param.getValue()));
+            imgTrash.setOnMouseClicked(event -> deletePayment(param.getValue()));
 
             return new ReadOnlyObjectWrapper<>(new HBox(10, imgEdit, imgTrash));
         });
 
-        txtQuery.textProperty().addListener((observable, oldValue, newValue) -> loadAllStudents(newValue));
+        txtQuery.textProperty().addListener((observable, oldValue, newValue) -> loadAllPayment(newValue));
 
-        loadAllStudents("");
+        loadAllPayment("");
     }
 
-    private void loadAllStudents(String query) {
+    private void loadAllPayment(String query) {
         tblAPayment.getItems().clear();
 
         for (Payment payment : paymentService.findStudents(query)) {
@@ -65,7 +65,7 @@ public class PaymentFormController {
         }
     }
 
-    private void deleteStudent(PaymentTM tm){
+    private void deletePayment(PaymentTM tm){
         try {
             Optional<ButtonType> buttonType = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure to delete this student?", ButtonType.YES, ButtonType.NO).showAndWait();
             if (buttonType.get() == ButtonType.YES) {
@@ -77,7 +77,7 @@ public class PaymentFormController {
         }
     }
 
-    private void updateStudent(PaymentTM tm){
+    private void updatePayment(PaymentTM tm){
         try {
             Stage secondaryStage = new Stage();
             FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/View/MainForm.fxml"));

@@ -10,21 +10,21 @@ public class PaymentService {
     public static final List<Payment> paymentDB = new ArrayList<>();
 
 
-    static {
-
-        /* Let's add some dummy data */
-        Payment p1 = new Payment("C-001", "DEP ", 5000.00f, 100000.00f);
-        Payment p2 = new Payment("C-002", "GDSE ", 4000.00f, 50000.00f);
-        Payment p3 = new Payment("C-003", "SSS ", 6000.00f, 40000.00f);
-        Payment p4 = new Payment("C-004", "HRM ", 3000.00f, 60000.00f);
-        Payment p5 = new Payment("C-005", "LLL ", 4500.00f, 120000.00f);
-
-        paymentDB.add(p1);
-        paymentDB.add(p2);
-        paymentDB.add(p3);
-        paymentDB.add(p4);
-        paymentDB.add(p5);
-    }
+//    static {
+//
+//        /* Let's add some dummy data */
+//        Payment p1 = new Payment("C-001", "DEP ", 5000.00f, 100000.00f);
+//        Payment p2 = new Payment("C-002", "GDSE ", 4000.00f, 50000.00f);
+//        Payment p3 = new Payment("C-003", "SSS ", 6000.00f, 40000.00f);
+//        Payment p4 = new Payment("C-004", "HRM ", 3000.00f, 60000.00f);
+//        Payment p5 = new Payment("C-005", "LLL ", 4500.00f, 120000.00f);
+//
+//        paymentDB.add(p1);
+//        paymentDB.add(p2);
+//        paymentDB.add(p3);
+//        paymentDB.add(p4);
+//        paymentDB.add(p5);
+//    }
 
     public PaymentService() {}
 

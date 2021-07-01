@@ -5,6 +5,9 @@ import Model.AdminTM;
 import Model.Payment;
 import Model.PaymentTM;
 import Service.PaymentService;
+import Service.PaymentServiceRedis;
+import Service.exception.DuplicateEntryException;
+import Service.exception.NotFoundException;
 import com.jfoenix.controls.JFXButton;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -30,7 +33,7 @@ public class PaymentEditFormController {
     public JFXButton btnSave;
     public Label lblTitle;
 
-    private final PaymentService paymentService = new PaymentService();
+    private final PaymentServiceRedis paymentService = new PaymentServiceRedis();
 
 
     public void initialize(){
@@ -41,36 +44,41 @@ public class PaymentEditFormController {
 
             if (root.getUserData() != null){
                 PaymentTM tm = (PaymentTM) root.getUserData();
-                Payment payment = paymentService.findStudent(tm.getCid());
+                Payment payment = null;
+                try {
+                    payment = paymentService.findPayment(tm.getCid());
+                } catch (NotFoundException e) {
+                    e.printStackTrace();
+                }
 
                 txtCourseID.setText(payment.getCid());
                 txtCourseName.setText(payment.getCourseName());
-                txtRegister.setText(String.valueOf(payment.getRegister()));
-                txtPayment.setText(String.valueOf(payment.getPayment()));
-                btnSave.setText("UPDATE STUDENT");
-                lblTitle.setText("Update Student");
+                txtRegister.setText(payment.getRegister());
+                txtPayment.setText(payment.getPayment());
+                btnSave.setText("UPDATE PAYMENT");
+                lblTitle.setText("Update Payment");
 
             }
         });
 
     }
 
-    public void btnSave_OnAction(ActionEvent actionEvent) {
+    public void btnSave_OnAction(ActionEvent actionEvent) throws NotFoundException, DuplicateEntryException {
         if(!isValidated()){
             MaterialUIError.paintTextFields(txtCourseID, txtCourseName, txtRegister, txtPayment);
         }else {
             Payment payment = new Payment(
                     txtCourseID.getText(),
                     txtCourseName.getText(),
-                    Float.parseFloat(txtRegister.getText()),
-                    Float.parseFloat(txtPayment.getText()));
+                    txtRegister.getText(),
+                    txtPayment.getText());
 
-            if (btnSave.getText().equals("UPDATE STUDENT")) {
-                paymentService.saveStudent(payment);
+            if (btnSave.getText().equals("UPDATE Payment")) {
+                paymentService.savePayment(payment);
             } else {
                 PaymentTM tm = (PaymentTM) root.getUserData();
                 tm.setCourseName(txtCourseName.getText());
-                paymentService.updateStudent(payment);
+                paymentService.updatePayment(payment);
             }
             new Alert(Alert.AlertType.NONE, "Student has been saved successfully", ButtonType.OK).show();
         }
