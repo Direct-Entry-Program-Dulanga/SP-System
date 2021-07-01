@@ -5,15 +5,15 @@ import java.io.Serializable;
 public class StudentTM implements Serializable {
 
     private String nic;
-    private String fullName;
+    private String name;
     private String address;
 
     public StudentTM() {
     }
 
-    public StudentTM(String nic, String fullName, String address) {
+    public StudentTM(String nic, String name, String address) {
         this.setNic(nic);
-        this.setFullName(fullName);
+        this.setName(name);
         this.setAddress(address);
     }
 
@@ -25,12 +25,12 @@ public class StudentTM implements Serializable {
         this.nic = nic;
     }
 
-    public String getFullName() {
-        return fullName;
+    public String getName() {
+        return name;
     }
 
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getAddress() {
@@ -45,12 +45,8 @@ public class StudentTM implements Serializable {
     public String toString() {
         return "StudentTM{" +
                 "nic='" + nic + '\'' +
-                ", fullName='" + fullName + '\'' +
+                ", name='" + name + '\'' +
                 ", address='" + address + '\'' +
                 '}';
     }
-
-
-
-
 }

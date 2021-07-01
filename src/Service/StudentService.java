@@ -59,7 +59,7 @@ public class StudentService {
         for (Student student : studentsDB) {
 
             if (student.getNic().contains(query) ||
-                    student.getFullName().contains(query) ||
+                    student.getName().contains(query) ||
                     student.getAddress().contains(query) ||
                     student.getEmail().contains(query) ||
                     student.getContact().contains(query)) {

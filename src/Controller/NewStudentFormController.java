@@ -53,7 +53,7 @@ public class NewStudentFormController {
 
                 txtNIC.setEditable(false);
                 txtNIC.setText(student.getNic());
-                txtStudentName.setText(student.getFullName());
+                txtStudentName.setText(student.getName());
                 txtAddress.setText(student.getAddress());
                 txtPhone.setText(student.getContact());
                 txtEmail.setText(student.getEmail());
@@ -88,8 +88,9 @@ public class NewStudentFormController {
             } else {
                 StudentTM tm = (StudentTM) root.getUserData();
 
-                tm.setFullName(txtStudentName.getText());
+                tm.setName(txtStudentName.getText());
                 tm.setAddress(txtAddress.getText());
+                tm.setNic(txtNIC.getText());
                 studentService.updateStudent(student);
             }
             new Alert(Alert.AlertType.NONE, "Student has been saved successfully", ButtonType.OK).show();

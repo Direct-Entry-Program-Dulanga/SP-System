@@ -20,62 +20,62 @@ public class PaymentServiceRedis {
 
     public void savePayment(Payment payment) throws DuplicateEntryException {
 
-        if (client.exists( payment.getCid())) {
+        if (client.exists( DB_PREFIX + payment.getCid())) {
             throw new DuplicateEntryException();
         }
-        client.hset(payment.getCid(), payment.toMap());
+        client.hset(DB_PREFIX + payment.getCid(), payment.toMap());
     }
 
     public void updatePayment(Payment payment) throws NotFoundException {
 
-        if (!client.exists(payment.getCid())) {
+        if (!client.exists(DB_PREFIX + payment.getCid())) {
             throw new NotFoundException();
         }
-        client.hset(payment.getCid(), payment.toMap());
+        client.hset(DB_PREFIX + payment.getCid(), payment.toMap());
     }
 
     public void deletePayment(String cid) throws NotFoundException {
-        if (!client.exists(cid)) {
+        if (!client.exists(DB_PREFIX + cid)) {
             throw new NotFoundException();
         }
-        client.del(cid);
+        client.del(DB_PREFIX + cid);
     }
 
     private boolean exitsPayment(String cid) {
-        return client.exists(cid);
+        return client.exists(DB_PREFIX + cid);
     }
 
     public Payment findPayment(String cid) throws NotFoundException {
-        if (!client.exists(cid)) {
+        if (!client.exists(DB_PREFIX + cid)) {
             throw new NotFoundException();
         }
-        return Payment.fromMap(cid, client.hgetAll(cid));
+        return Payment.fromMap(cid.replace(DB_PREFIX, ""), client.hgetAll(DB_PREFIX + cid));
     }
 
     public List<Payment> findAllPayments() {
         List<Payment> paymentList = new ArrayList<>();
-        Set<String> cidList = client.keys("*");
+        Set<String> cidList = client.keys(DB_PREFIX + "*");
 
         for (String cid : cidList) {
-            paymentList.add(Payment.fromMap(cid, client.hgetAll(cid)));
+            paymentList.add(Payment.fromMap(cid.replace(DB_PREFIX, ""), client.hgetAll(DB_PREFIX + cid)));
         }
         return paymentList;
     }
 
     public List<Payment> findPayments(String query) {
         List<Payment> searchResult = new ArrayList<>();
-        Set<String> cidList = client.keys("*");
+        Set<String> cidList = client.keys(DB_PREFIX + "*");
 
         for (String cid : cidList) {
 
             if (cid.contains(query)){
-                searchResult.add(Payment.fromMap(cid, client.hgetAll(cid)));
+                searchResult.add(Payment.fromMap(cid.replace(DB_PREFIX, ""), client.hgetAll(DB_PREFIX + cid)));
             }else{
-                List<String> data = client.hvals(cid);
+                List<String> data = client.hvals(DB_PREFIX + cid);
 
                 for (String value : data) {
                     if (value.contains(query)){
-                        searchResult.add(Payment.fromMap(cid, client.hgetAll(cid)));
+                        searchResult.add(Payment.fromMap(cid.replace(DB_PREFIX, ""), client.hgetAll(DB_PREFIX + cid)));
                         break;
                     }
                 }

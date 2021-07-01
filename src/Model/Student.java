@@ -7,7 +7,7 @@ import java.util.Map;
 public class Student implements Serializable {
 
     private String nic;
-    private String fullName;
+    private String name;
     private String address;
     private String contact;
     private String email;
@@ -15,9 +15,9 @@ public class Student implements Serializable {
     public Student() {
     }
 
-    public Student(String nic, String fullName, String address, String contact, String email) {
+    public Student(String nic, String name, String address, String contact, String email) {
         this.nic = nic;
-        this.fullName = fullName;
+        this.name = name;
         this.address = address;
         this.contact = contact;
         this.email = email;
@@ -26,7 +26,7 @@ public class Student implements Serializable {
     public static Student fromMap(String nic, Map<String, String> data) {
         return new Student(
                 nic,
-                data.get("fullName"),
+                data.get("name"),
                 data.get("address"),
                 data.get("contact"),
                 data.get("email")
@@ -42,12 +42,12 @@ public class Student implements Serializable {
         this.nic = nic;
     }
 
-    public String getFullName() {
-        return fullName;
+    public String getName() {
+        return name;
     }
 
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
+    public void setName(String fullName) {
+        this.name = name;
     }
 
     public String getAddress() {
@@ -76,7 +76,7 @@ public class Student implements Serializable {
 
     public Map<String, String> toMap() {
         HashMap<String, String> map = new HashMap<>();
-        map.put("fullName", fullName);
+        map.put("name", name);
         map.put("address", address);
         map.put("contact", contact);
         map.put("email", email);
@@ -87,7 +87,7 @@ public class Student implements Serializable {
     public String toString() {
         return "Student{" +
                 "nic='" + nic + '\'' +
-                ", fullName='" + fullName + '\'' +
+                ", name='" + name + '\'' +
                 ", address='" + address + '\'' +
                 ", contact='" + contact + '\'' +
                 ", email='" + email + '\'' +

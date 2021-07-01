@@ -92,11 +92,9 @@ public class SearchRegistrationFormController {
 
     private void loadAllStudents(String query){
         tblSearch.getItems().clear();
-
         for (Student student : studentService.findStudents(query)) {
-            tblSearch.getItems().add(new StudentTM(student.getNic(), student.getFullName(), student.getAddress()));
-
-            System.out.println(tblSearch.getItems().add(new StudentTM(student.getNic(), student.getFullName(), student.getAddress())));
+//            tblSearch.getItems().add(new StudentTM(student.getNic(), student.getFullName(), student.getAddress()));
+            tblSearch.getItems().add(new StudentTM(student.getNic(), student.getName(), student.getAddress()));
         }
     }
 
