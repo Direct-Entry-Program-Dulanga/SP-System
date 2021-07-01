@@ -1,14 +1,14 @@
 package Controller;
 
+import Model.AdminTM;
 import Model.Student;
 import Model.StudentTM;
 import Service.StudentServiceRedisImpl;
+import Service.exception.NotFoundException;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
@@ -22,6 +22,7 @@ import util.AppBarIcon;
 import util.MaterialUI;
 
 import java.io.IOException;
+import java.util.Optional;
 
 public class SearchRegistrationFormController {
 
@@ -39,12 +40,15 @@ public class SearchRegistrationFormController {
 
         lastCol.setCellValueFactory(param -> {
             ImageView imgEdit = new ImageView("/View/assets/Edit.png");
+            ImageView imgTrash = new ImageView("/View/assets/Trash.png");
 
             imgEdit.getStyleClass().add("action-icons");
+            imgTrash.getStyleClass().add("action-icons");
 
             imgEdit.setOnMouseClicked(event -> updateStudent(param.getValue()));
+            imgTrash.setOnMouseClicked(event -> deleteStudent(param.getValue()));
 
-            return new ReadOnlyObjectWrapper<>(new HBox(10, imgEdit));
+            return new ReadOnlyObjectWrapper<>(new HBox(10, imgEdit, imgTrash));
         });
 
         txtQuery.textProperty().addListener((observable, oldValue, newValue) -> loadAllStudents(newValue));
@@ -71,6 +75,18 @@ public class SearchRegistrationFormController {
             tblSearch.refresh();
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    private void deleteStudent(StudentTM tm){
+        try {
+            Optional<ButtonType> buttonType = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure to delete this student?", ButtonType.YES, ButtonType.NO).showAndWait();
+            if (buttonType.get() == ButtonType.YES) {
+                studentService.deleteStudent(tm.getNic());
+                tblSearch.getItems().remove(tm);
+            }
+        }catch (RuntimeException | NotFoundException e){
+            new Alert(Alert.AlertType.ERROR, "Failed to delete the item", ButtonType.OK).show();
         }
     }
 

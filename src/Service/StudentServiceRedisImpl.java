@@ -30,8 +30,7 @@ public class StudentServiceRedisImpl {
 //        studentsDB.add(s5);
 //    }
 
-    private static final String DB_PREFIX = "s#";
-
+    private static final String DB_PREFIX = "S#";
     private final Jedis client;
 
     public StudentServiceRedisImpl() {
@@ -40,62 +39,62 @@ public class StudentServiceRedisImpl {
 
     public void saveStudent(Student student) throws DuplicateEntryException {
 
-        if (client.exists(DB_PREFIX + student.getNic())) {
+        if (client.exists( student.getNic())) {
             throw new DuplicateEntryException();
         }
-        client.hset(DB_PREFIX + student.getNic(), student.toMap());
+        client.hset(student.getNic(), student.toMap());
     }
 
     public void updateStudent(Student student) throws NotFoundException {
 
-        if (!client.exists(DB_PREFIX + student.getNic())) {
+        if (!client.exists(student.getNic())) {
             throw new NotFoundException();
         }
-        client.hset(DB_PREFIX + student.getNic(), student.toMap());
+        client.hset(student.getNic(), student.toMap());
     }
 
     public void deleteStudent(String nic) throws NotFoundException {
-        if (!client.exists(DB_PREFIX + nic)) {
+        if (!client.exists(nic)) {
             throw new NotFoundException();
         }
-        client.del(DB_PREFIX + nic);
+        client.del(nic);
     }
 
     private boolean exitsStudent(String nic) {
-        return client.exists(DB_PREFIX + nic);
+        return client.exists(nic);
     }
 
     public Student findStudent(String nic) throws NotFoundException {
-        if (!client.exists(DB_PREFIX + nic)) {
+        if (!client.exists(nic)) {
             throw new NotFoundException();
         }
-        return Student.fromMap(DB_PREFIX + nic, client.hgetAll(DB_PREFIX + nic));
+        return Student.fromMap(nic, client.hgetAll(nic));
     }
 
     public List<Student> findAllStudents() {
         List<Student> studentList = new ArrayList<>();
-        Set<String> nicList = client.keys(DB_PREFIX + "*");
+        Set<String> nicList = client.keys("*");
 
         for (String nic : nicList) {
-            studentList.add(Student.fromMap(nic, client.hgetAll(DB_PREFIX + nic)));
+            studentList.add(Student.fromMap(nic, client.hgetAll(nic)));
         }
         return studentList;
     }
 
     public List<Student> findStudents(String query) {
         List<Student> searchResult = new ArrayList<>();
-        Set<String> nicList = client.keys(DB_PREFIX + "*");
+        Set<String> nicList = client.keys("*");
 
         for (String nic : nicList) {
 
             if (nic.contains(query)){
-                searchResult.add(Student.fromMap(nic, client.hgetAll(DB_PREFIX + nic)));
+                searchResult.add(Student.fromMap(nic, client.hgetAll(nic)));
             }else{
-                List<String> data = client.hvals(DB_PREFIX + nic);
+                List<String> data = client.hvals(nic);
 
                 for (String value : data) {
                     if (value.contains(query)){
-                        searchResult.add(Student.fromMap(DB_PREFIX + nic, client.hgetAll(DB_PREFIX + nic)));
+                        searchResult.add(Student.fromMap(nic, client.hgetAll(nic)));
                         break;
                     }
                 }

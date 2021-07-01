@@ -34,6 +34,7 @@ public class Student implements Serializable {
         );
     }
 
+
     public String getNic() {
         return nic;
     }
@@ -82,7 +83,6 @@ public class Student implements Serializable {
         map.put("email", email);
         return map;
     }
-
 
     @Override
     public String toString() {

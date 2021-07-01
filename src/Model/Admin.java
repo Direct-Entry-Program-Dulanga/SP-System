@@ -1,5 +1,8 @@
 package Model;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Admin {
     private String nic;
     private String fullName;
