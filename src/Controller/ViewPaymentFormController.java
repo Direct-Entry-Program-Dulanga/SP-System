@@ -1,11 +1,9 @@
 package Controller;
 
-import Model.Admin;
-import Model.AdminTM;
 import Model.Payment;
 import Model.PaymentTM;
-import Service.AdminService;
-import Service.PaymentService;
+import Service.PaymentServiceRedis;
+import Service.exception.NotFoundException;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -23,12 +21,12 @@ import util.MaterialUI;
 import java.io.IOException;
 import java.util.Optional;
 
-public class PaymentFormController {
+public class ViewPaymentFormController {
 
     public TableView<PaymentTM> tblAPayment;
     public TextField txtQuery;
 
-    private PaymentService paymentService = new PaymentService();
+    private PaymentServiceRedis paymentService = new PaymentServiceRedis();
 
 
     public void initialize() {
@@ -59,7 +57,7 @@ public class PaymentFormController {
     private void loadAllPayment(String query) {
         tblAPayment.getItems().clear();
 
-        for (Payment payment : paymentService.findStudents(query)) {
+        for (Payment payment : paymentService.findPayments(query)) {
             tblAPayment.getItems().add(new PaymentTM(payment.getCid(), payment.getCourseName(), payment.getRegister(), payment.getPayment()));
             System.out.println(tblAPayment.getItems());
         }
@@ -69,10 +67,10 @@ public class PaymentFormController {
         try {
             Optional<ButtonType> buttonType = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure to delete this student?", ButtonType.YES, ButtonType.NO).showAndWait();
             if (buttonType.get() == ButtonType.YES) {
-                paymentService.deleteStudent(tm.getCid());
+                paymentService.deletePayment(tm.getCid());
                 tblAPayment.getItems().remove(tm);
             }
-        }catch (RuntimeException e){
+        }catch (RuntimeException | NotFoundException e){
             new Alert(Alert.AlertType.ERROR, "Failed to delete the item", ButtonType.OK).show();
         }
     }
@@ -89,8 +87,8 @@ public class PaymentFormController {
             secondaryStage.initStyle(StageStyle.TRANSPARENT);
             secondaryStage.initModality(Modality.WINDOW_MODAL);
             secondaryStage.initOwner(txtQuery.getScene().getWindow());
-            secondaryStage.setTitle("Update Payment");
-            ctrl.navigate("Update Payment","/View/PaymentEditForm.fxml", AppBarIcon.NAV_ICON_NONE, null, tm);
+            secondaryStage.setTitle("Update Course");
+            ctrl.navigate("Update Courses", "/View/AddPaymentForm.fxml", AppBarIcon.NAV_ICON_NONE, null, tm);
 
             secondaryStage.showAndWait();
             tblAPayment.refresh();
@@ -98,5 +96,6 @@ public class PaymentFormController {
             e.printStackTrace();
         }
     }
+
 
 }

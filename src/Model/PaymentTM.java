@@ -10,10 +10,10 @@ public class PaymentTM {
     }
 
     public PaymentTM(String cid, String courseName, String register, String payment) {
-        this.cid = cid;
-        this.courseName = courseName;
-        this.register = register;
-        this.payment = payment;
+        this.setCid(cid);
+        this.setCourseName(courseName);
+        this.setRegister(register);
+        this.setPayment(payment);
     }
 
     public String getCid() {
@@ -46,5 +46,15 @@ public class PaymentTM {
 
     public void setPayment(String payment) {
         this.payment = payment;
+    }
+
+    @Override
+    public String toString() {
+        return "PaymentTM{" +
+                "cid='" + cid + '\'' +
+                ", courseName='" + courseName + '\'' +
+                ", register='" + register + '\'' +
+                ", payment='" + payment + '\'' +
+                '}';
     }
 }

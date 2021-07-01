@@ -6,6 +6,7 @@ import Model.Student;
 import Model.StudentTM;
 import Service.AdminService;
 import Service.StudentService;
+import Service.StudentServiceRedisImpl;
 import com.jfoenix.controls.JFXButton;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -30,7 +31,8 @@ public class AdminStudentFormController {
     public JFXButton btnSave;
     public AnchorPane root;
 
-    private final AdminService adminService = new AdminService();
+    private final StudentServiceRedisImpl studentService = new StudentServiceRedisImpl();
+
     public Label lblNIC;
     public Label lblName;
     public Label lblAddress;
@@ -41,22 +43,22 @@ public class AdminStudentFormController {
 
 
     public void initialize(){
-        MaterialUI.paintTextFields(txtStudentName, txtAddress, txtEmail, txtPhone, txtNIC, txtPayment, txtRegister);
+        MaterialUI.paintTextFields(txtStudentName, txtAddress, txtEmail, txtPhone, txtNIC, txtPayment);
 //        setCourse();
 
         Platform.runLater(()->{
 
             if (root.getUserData() != null){
                 AdminTM tm = (AdminTM) root.getUserData();
-                Admin admin = adminService.findStudent(tm.getNic());
+                Admin admin = studentService.findStudent(tm.getNic());
 
                 txtNIC.setText(admin.getNic());
                 txtStudentName.setText(admin.getFullName());
                 txtAddress.setText(admin.getAddress());
                 txtPhone.setText(admin.getContact());
                 txtEmail.setText(admin.getEmail());
-                txtRegister.setText(String.valueOf(admin.getRegisterFee()));
-                txtPayment.setText(String.valueOf(admin.getPaymentFee()));
+                txtRegister.setText(admin.getRegisterFee());
+                txtPayment.setText(admin.getPaymentFee());
                 btnSave.setText("UPDATE STUDENT");
                 lblTitle.setText("Update Student");
 
@@ -75,8 +77,8 @@ public class AdminStudentFormController {
                     txtAddress.getText(),
                     txtPhone.getText(),
                     txtEmail.getText(),
-                    Float.parseFloat(txtRegister.getText()),
-                    Float.parseFloat(txtPayment.getText()));
+                    txtRegister.getText(),
+                    txtPayment.getText());
 
             if (btnSave.getText().equals("UPDATE STUDENT")) {
                 adminService.saveStudent(admin);

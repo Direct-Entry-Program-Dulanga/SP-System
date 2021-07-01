@@ -1,9 +1,6 @@
 package Controller;
 
-import Model.Admin;
-import Model.AdminTM;
-import Model.Payment;
-import Model.PaymentTM;
+import Model.*;
 import Service.PaymentService;
 import Service.PaymentServiceRedis;
 import Service.exception.DuplicateEntryException;
@@ -20,7 +17,7 @@ import util.MaterialUI;
 import util.MaterialUIError;
 
 
-public class PaymentEditFormController {
+public class AddPaymentFormController {
     public AnchorPane root;
     public TextField txtCourseID;
     public Label lblCID;
@@ -55,8 +52,8 @@ public class PaymentEditFormController {
                 txtCourseName.setText(payment.getCourseName());
                 txtRegister.setText(payment.getRegister());
                 txtPayment.setText(payment.getPayment());
-                btnSave.setText("UPDATE PAYMENT");
-                lblTitle.setText("Update Payment");
+                btnSave.setText("UPDATE COURSE");
+                lblTitle.setText("Update Course");
 
             }
         });
@@ -64,20 +61,26 @@ public class PaymentEditFormController {
     }
 
     public void btnSave_OnAction(ActionEvent actionEvent) throws NotFoundException, DuplicateEntryException {
-        if(!isValidated()){
+        if (!isValidated()) {
             MaterialUIError.paintTextFields(txtCourseID, txtCourseName, txtRegister, txtPayment);
-        }else {
+        } else {
             Payment payment = new Payment(
                     txtCourseID.getText(),
                     txtCourseName.getText(),
                     txtRegister.getText(),
                     txtPayment.getText());
 
-            if (btnSave.getText().equals("UPDATE Payment")) {
+            if (btnSave.getText().equals("ADD NEW STUDENT")) {
                 paymentService.savePayment(payment);
+                txtPayment.clear();
+                txtCourseID.clear();
+                txtCourseName.clear();
+                txtRegister.clear();
             } else {
                 PaymentTM tm = (PaymentTM) root.getUserData();
+
                 tm.setCourseName(txtCourseName.getText());
+                tm.setCid(txtCourseID.getText());
                 paymentService.updatePayment(payment);
             }
             new Alert(Alert.AlertType.NONE, "Student has been saved successfully", ButtonType.OK).show();
@@ -101,13 +104,13 @@ public class PaymentEditFormController {
             lblCID.setVisible(false);
             txtCourseID.requestFocus();
             return false;
-        }else if(!register.matches("^\\d{3,}[.]\\d$")) {
+        }else if(!register.matches("^\\d{3,}[.]\\d{2,}$")) {
             lblRegister.setText("(!) Invalid Register Payment");
             MaterialUIError.paintTextFields(txtRegister);
             lblRegister.setVisible(false);
             txtRegister.requestFocus();
             return false;
-        }else if(!payment.matches("^\\d{3,}[.]\\d$")){
+        }else if(!payment.matches("^\\d{3,}[.]\\d{2,}$")){
             lblPayment.setText("(!) Invalid Full Payment");
             MaterialUIError.paintTextFields(txtPayment);
             lblRegister.setVisible(false);

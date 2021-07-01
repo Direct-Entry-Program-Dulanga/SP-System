@@ -9,13 +9,13 @@ public class Admin {
     private String address;
     private String contact;
     private String email;
-    private float registerFee;
-    private float paymentFee;
+    private String registerFee;
+    private String paymentFee;
 
     public Admin() {
     }
 
-    public Admin(String nic, String fullName, String address, String contact, String email, float registerFee, float paymentFee) {
+    public Admin(String nic, String fullName, String address, String contact, String email, String registerFee, String paymentFee) {
         this.nic = nic;
         this.fullName = fullName;
         this.address = address;
@@ -65,19 +65,19 @@ public class Admin {
         this.email = email;
     }
 
-    public float getRegisterFee() {
+    public String getRegisterFee() {
         return registerFee;
     }
 
-    public void setRegisterFee(float registerFee) {
+    public void setRegisterFee(String registerFee) {
         this.registerFee = registerFee;
     }
 
-    public float getPaymentFee() {
+    public String getPaymentFee() {
         return paymentFee;
     }
 
-    public void setPaymentFee(float paymentFee) {
+    public void setPaymentFee(String paymentFee) {
         this.paymentFee = paymentFee;
     }
 }

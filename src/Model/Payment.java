@@ -67,4 +67,14 @@ public class Payment {
         map.put("payment", payment);
         return map;
     }
+
+    @Override
+    public String toString() {
+        return "Payment{" +
+                "cid='" + cid + '\'' +
+                ", courseName='" + courseName + '\'' +
+                ", register='" + register + '\'' +
+                ", payment='" + payment + '\'' +
+                '}';
+    }
 }
