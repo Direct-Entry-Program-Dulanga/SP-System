@@ -20,7 +20,7 @@ public class PaymentServiceRedis {
 
     public void savePayment(Payment payment) throws DuplicateEntryException {
 
-        if (client.exists( DB_PREFIX + payment.getCid())) {
+        if (client.exists(DB_PREFIX + payment.getCid())) {
             throw new DuplicateEntryException();
         }
         client.hset(DB_PREFIX + payment.getCid(), payment.toMap());
@@ -68,13 +68,13 @@ public class PaymentServiceRedis {
 
         for (String cid : cidList) {
 
-            if (cid.contains(query)){
+            if (cid.contains(query)) {
                 searchResult.add(Payment.fromMap(cid.replace(DB_PREFIX, ""), client.hgetAll(DB_PREFIX + cid)));
-            }else{
+            } else {
                 List<String> data = client.hvals(DB_PREFIX + cid);
 
                 for (String value : data) {
-                    if (value.contains(query)){
+                    if (value.contains(query)) {
                         searchResult.add(Payment.fromMap(cid.replace(DB_PREFIX, ""), client.hgetAll(DB_PREFIX + cid)));
                         break;
                     }

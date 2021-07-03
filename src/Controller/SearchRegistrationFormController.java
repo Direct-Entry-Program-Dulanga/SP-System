@@ -1,9 +1,8 @@
 package Controller;
 
-import Model.AdminTM;
 import Model.Student;
 import Model.StudentTM;
-import Service.StudentServiceRedisImpl;
+import Service.StudentServiceRedis;
 import Service.exception.NotFoundException;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.fxml.FXMLLoader;
@@ -27,14 +26,14 @@ import java.util.Optional;
 public class SearchRegistrationFormController {
 
 
-    private StudentServiceRedisImpl studentService = new StudentServiceRedisImpl();
+    private StudentServiceRedis studentService = new StudentServiceRedis();
     public TextField txtQuery;
     public TableView<StudentTM> tblSearch;
 
     public void initialize() {
         MaterialUI.paintTextFields(txtQuery);
         tblSearch.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("nic"));
-        tblSearch.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("fullName"));
+        tblSearch.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("name"));
         tblSearch.getColumns().get(2).setCellValueFactory(new PropertyValueFactory<>("address"));
         TableColumn<StudentTM, HBox> lastCol = (TableColumn<StudentTM, HBox>) tblSearch.getColumns().get(3);
 
@@ -93,7 +92,6 @@ public class SearchRegistrationFormController {
     private void loadAllStudents(String query){
         tblSearch.getItems().clear();
         for (Student student : studentService.findStudents(query)) {
-//            tblSearch.getItems().add(new StudentTM(student.getNic(), student.getFullName(), student.getAddress()));
             tblSearch.getItems().add(new StudentTM(student.getNic(), student.getName(), student.getAddress()));
         }
     }

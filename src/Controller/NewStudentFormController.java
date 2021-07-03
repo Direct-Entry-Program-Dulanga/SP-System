@@ -2,13 +2,16 @@ package Controller;
 
 import Model.Student;
 import Model.StudentTM;
-import Service.StudentServiceRedisImpl;
+import Service.StudentServiceRedis;
 import Service.exception.DuplicateEntryException;
 import Service.exception.NotFoundException;
 import com.jfoenix.controls.JFXButton;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
-import javafx.scene.control.*;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import util.MaterialUI;
 import util.MaterialUIError;
@@ -19,8 +22,6 @@ public class NewStudentFormController {
     public TextField txtAddress;
     public TextField txtPhone;
     public TextField txtEmail;
-    public RadioButton rbnDep;
-    public RadioButton rbnGDse;
     public JFXButton btnSave;
     public AnchorPane root;
     public Label lblTitle;
@@ -31,7 +32,7 @@ public class NewStudentFormController {
     public Label lblEmail;
     public Label lblName;
 
-    private final StudentServiceRedisImpl studentService = new StudentServiceRedisImpl();
+    private final StudentServiceRedis studentService = new StudentServiceRedis();
 
     public void initialize() {
         MaterialUI.paintTextFields(txtStudentName, txtAddress, txtEmail, txtPhone, txtNIC);

@@ -6,15 +6,14 @@ public class JedisClient {
     private static JedisClient jedisClient;
     private final Jedis client;
 
-    private JedisClient(){
+    private JedisClient() {
         client = new Jedis("localhost", 9090);
         client.auth("redis");
     }
 
-    public static JedisClient getInstance(){
+    public static JedisClient getInstance() {
         return (jedisClient == null) ? jedisClient = new JedisClient() : jedisClient;
     }
-
 
     public Jedis getClient() {
         return client;
